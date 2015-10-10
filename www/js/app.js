@@ -20,6 +20,11 @@
                 templateUrl: 'templates/map.html',
                 controller: 'MapController as MapCtrl'
             })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: 'templates/profile.html',
+                controller: 'ProfileController as ProfileCtrl'
+            })
             .state('alerts', {
                 url: '/alerts',
                 templateUrl: 'templates/alerts.html',
@@ -59,7 +64,8 @@
         'bulkee.login',
         'bulkee.home',
         'bulkee.map',
-        'bulkee.alerts'
+        'bulkee.alerts',
+        'bulkee.profile'
     ])
 
     .config(['$urlRouterProvider', '$stateProvider', 'uiGmapGoogleMapApiProvider', config])
