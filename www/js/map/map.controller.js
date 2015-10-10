@@ -19,7 +19,9 @@
           zoom: 5,
           options: {
             disableDefaultUI: true
-          }
+          },
+          disableDefaultUI: !0,
+          mapTypeControl: !1
         };
 
         vm.marker = {
