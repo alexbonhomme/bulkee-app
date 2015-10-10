@@ -5,16 +5,16 @@
         .module('bulkee.map')
         .controller('MapController', MapController);
 
-    MapController.$inject = [ 'uiGmapGoogleMapApi', 'currentLocation' ];
+    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation' ];
 
-    function MapController(uiGmapGoogleMapApi, currentLocation) {
+    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation) {
         var vm = this;
 
-        // Attrubutes
+        // Attributes
         vm.map = {
             center: {
-                latitude: currentLocation.latitude,
-                longitude: currentLocation.longitude
+                latitude: 50.62925,
+                longitude: 3.05725
             },
             zoom: 14
         };
@@ -23,8 +23,8 @@
             current: {
                 id: 0,
                 coords: {
-                    latitude: currentLocation.latitude,
-                    longitude: currentLocation.longitude
+                    // latitude: 50.62925,
+                    // longitude: 3.05725
                 }
             }
         };
@@ -37,6 +37,31 @@
             uiGmapGoogleMapApi.then(function (maps) {
                 console.log("Map ready!");
             });
+
+            $ionicPlatform.ready(function () {
+                var posOptions = {
+                    enableHighAccuracy: true,
+                    timeout: 20000,
+                    maximumAge: 0
+                };
+
+                $cordovaGeolocation
+                    .getCurrentPosition(posOptions)
+                    .then(function (position) {
+                        // Center the map
+                        vm.map.center.latitude = position.coords.latitude;
+                        vm.map.center.longitude = position.coords.longitude;
+
+                        // Current position marker
+                        vm.markers.current.coords.latitude = position.coords.latitude;
+                        vm.markers.current.coords.longitude = position.coords.longitude;
+                    }, function (err) {
+                        // error report
+                        console.error(err);
+                    })
+                ;
+            });
+
         }
     }
 })();
