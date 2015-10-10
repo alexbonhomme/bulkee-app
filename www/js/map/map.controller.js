@@ -20,6 +20,10 @@
           options: {
             disableDefaultUI: true
           }
+          disableDefaultUI: !0,
+          mapTypeControl: !1,
+           // tilt: 45
+         }
         };
 
         vm.marker = {
