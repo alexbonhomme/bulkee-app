@@ -15,6 +15,18 @@ body {
 	margin-right: auto;
 }
 
+img {
+  max-width: 100%;
+}
+
+hr {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: $light;
+  margin: 16px 0;
+}
+
 .bloc {
 	padding: 6px 12px;
 	border: solid 1px #ddd;
@@ -139,4 +151,5 @@ label.item {
 @import "scss/home";
 @import "scss/map";
 @import "scss/alerts";
+@import "scss/profile";
 

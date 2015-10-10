@@ -1,0 +1,29 @@
+.level {
+	text-align: center;
+	h2 {
+		color: $energized;
+		text-transform: uppercase;
+		font-size: 18px;
+		font-weight: 200;
+		margin: 10px auto;
+	}
+	img {
+		width: 215px;
+		height: auto;
+		margin: 0 auto;
+	}
+} 
+
+.count {
+	color: #B3B3B3;
+	font-size: 17px;
+	margin-top: 10px;
+	strong {
+		font-size: 34px;
+		font-weight: normal;
+	}
+}
+
+.page-profile {
+	font-size: 12px;
+}
