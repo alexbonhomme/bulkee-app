@@ -23,34 +23,7 @@
             .state('map', {
                 url: '/map',
                 templateUrl: 'templates/map.html',
-                controller: 'MapController as MapCtrl',
-                resolve: {
-                    currentLocation: function($q) {
-                        var q = $q.defer();
-
-                        navigator.geolocation.getCurrentPosition(function (pos) {
-
-                            console.log('Position=');
-                            console.log(pos);
-
-                            latLong =  {
-                                lat: pos.coords.latitude,
-                                long: pos.coords.longitude
-                            };
-
-                            q.resolve(latLong);
-
-                        }, function (error) {
-                            console.log('Got error!');
-                            console.log(error);
-                            latLong = null
-
-                            q.reject('Failed to Get Lat Long')
-                        });
-
-                        return q.promise;
-                    }
-                }
+                controller: 'MapController as MapCtrl'
             })
         ;
 
@@ -79,6 +52,7 @@
         'ionic',
         'ionic.service.core',
         'uiGmapgoogle-maps',
+        'ngCordova',
 
         // Application modules
         'bulkee.login',
