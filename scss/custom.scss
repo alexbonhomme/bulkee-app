@@ -1,7 +1,16 @@
-
-
 // General
 //
+
+body {
+	background: #fff;
+}
+
+.button-block {
+	max-width: 286px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 label.item {
 	border-radius: $border-radius-base;
 	margin-bottom: 16px;

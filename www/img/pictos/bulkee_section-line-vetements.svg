@@ -17,6 +17,15 @@
 	.st11{fill:#CBE021;}
 	.st12{fill:#00A99D;}
 	.st13{fill:#FF99AC;}
+	.st14{fill:none;stroke:#8CC63F;stroke-width:5;stroke-miterlimit:10;}
+	.st15{fill:none;stroke:#CBE021;stroke-width:5;stroke-miterlimit:10;}
+	.st16{fill:none;stroke:#FBB07F;stroke-width:5;stroke-miterlimit:10;}
+	.st17{fill:none;stroke:#00A99D;stroke-width:5;stroke-miterlimit:10;}
+	.st18{fill:none;stroke:#29ABE2;stroke-width:5;stroke-miterlimit:10;}
+	.st19{fill:none;stroke:#0071BC;stroke-width:5;stroke-miterlimit:10;}
+	.st20{fill:none;stroke:#ED6754;stroke-width:5;stroke-miterlimit:10;}
+	.st21{fill:none;stroke:#FF99AC;stroke-width:5;stroke-miterlimit:10;}
+	.st22{fill:none;stroke:#999999;stroke-width:5;stroke-miterlimit:10;}
 </style>
 <g>
 	<g>
@@ -32,5 +41,8 @@
 				c0,7.9,9,14.3,20.1,14.3s20.1-6.4,20.1-14.3c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C139.9,61.6,127.4,71.4,112.1,71.4z"/>
 		</g>
 	</g>
+</g>
+<g>
+	<circle class="st20" cx="113.2" cy="112.8" r="109.7"/>
 </g>
 </svg>
