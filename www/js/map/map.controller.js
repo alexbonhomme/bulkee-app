@@ -5,16 +5,16 @@
         .module('bulkee.map')
         .controller('MapController', MapController);
 
-    MapController.$inject = [ 'uiGmapGoogleMapApi' ];
+    MapController.$inject = [ 'uiGmapGoogleMapApi', 'currentLocation' ];
 
-    function MapController(uiGmapGoogleMapApi) {
+    function MapController(uiGmapGoogleMapApi, currentLocation) {
         var vm = this;
 
         // Attrubutes
         vm.map = {
             center: {
-                latitude: 45,
-                longitude: -73
+                latitude: currentLocation.latitude,
+                longitude: currentLocation.longitude
             },
             zoom: 8
         };

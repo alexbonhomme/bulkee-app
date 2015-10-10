@@ -25,7 +25,7 @@
                 templateUrl: 'templates/map.html',
                 controller: 'MapController as MapCtrl',
                 resolve: {
-                    currentLocation: function($q) {
+                    currentLocation: function ($q) {
                         var q = $q.defer();
 
                         navigator.geolocation.getCurrentPosition(function (pos) {
@@ -33,19 +33,14 @@
                             console.log('Position=');
                             console.log(pos);
 
-                            latLong =  {
-                                lat: pos.coords.latitude,
-                                long: pos.coords.longitude
-                            };
-
-                            q.resolve(latLong);
+                            q.resolve(pos.coords);
 
                         }, function (error) {
                             console.log('Got error!');
                             console.log(error);
-                            latLong = null
+                            latLong = null;
 
-                            q.reject('Failed to Get Lat Long')
+                            q.reject('Failed to Get Lat Long');
                         });
 
                         return q.promise;
