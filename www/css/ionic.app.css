@@ -7699,3 +7699,13 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.pane {
+  background: transparent; }
+
+.home {
+  background: url('../img/bg.png');
+  background-position: cover;
+  width: 100vh;
+  height: 100vh;
+  display: block; }
