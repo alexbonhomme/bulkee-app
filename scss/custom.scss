@@ -18,8 +18,6 @@ label.item {
 	overflow: hidden;
 }
 
-<<<<<<< HEAD
-
 // Button effects
 // 
 /* Push */
@@ -70,36 +68,4 @@ label.item {
 
 @import "scss/login";
 @import "scss/home";
-
-
-=======
-.page-login {
-	text-align: center;
-	img {
-		width: 125px;
-		margin: 0 auto 50px auto;
-		display: block;
-	}
-	.row-center {
-		height: 100vh;
-		max-width: 286px;
-		margin: 0 auto;
-	}
-
-	hr {
-		border-top-color: transparent;
-		border-left-color: transparent;
-		border-right-color: transparent;
-		border-bottom-color: $light;
-		margin: 16px 0;
-	}
-}
-
-.angular-google-map {
-    height: 100%;
-
-    .angular-google-map-container {
-        height: 100%;
-    }
-}
->>>>>>> 7e94b17a3ceb0161795502bff92389270589b9ad
+@import "scss/map";
