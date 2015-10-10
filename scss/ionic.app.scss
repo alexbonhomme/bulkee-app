@@ -1,3 +1,5 @@
+@import "scss/fonts";
+
 /*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
@@ -14,11 +16,17 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+
+
 $calm: 							  #8CC63F;
 // $light:                           #E4E4E4;
 $positive:                        #F9B083;
 $balanced:                        #4A63A4;
 
+$base-color:					  #808080;
+$input-label-color:				  $base-color;
+
+$font-family-sans-serif:          "Open Sans", "Roboto", "Segoe UI", sans-serif !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;

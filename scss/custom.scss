@@ -5,11 +5,26 @@ body {
 	background: #fff;
 }
 
+.content {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
 .button-block {
-	max-width: 286px;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.bloc {
+	padding: 6px 12px;
+	border: solid 1px #ddd;
+	border-radius: $border-radius-base;
+	margin: 16px auto;
+
+	.range {
+		padding: 0;
+	}
+} 
 
 label.item {
 	border-radius: $border-radius-base;
@@ -90,6 +105,7 @@ label.item {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+
 
 @import "scss/login";
 @import "scss/home";
