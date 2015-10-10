@@ -1,5 +1,4 @@
 .categories {
-
   label {
     position: relative;
     display: block;
@@ -8,11 +7,6 @@
     width: 74px;
     text-align: center;
     padding: 0;
-    &:before {
-      left: 0;
-      position: relative;
-      font-size: 38px;
-    }
 
   	&.checked {
   		color: red;
@@ -24,20 +18,41 @@
   }
 }
 
-.category {
+
+// Colors
+// 
+$meubles:       #8CC63F;
+$deco:          #CBE021;
+$divers:        #999999;
+$vetements:     #ED6754;
+$culture:       #FBB07F;
+$jouets:        #FF99AC;
+$multimedia:    #29ABE2;
+$petitelectro:  #00A99D;
+$electro:       #0071BC;
+
+
+@mixin category($catname, $color) {
+  border: solid 2px $color;
+  background: url('../img/pictos/bulkee_section-line-#{$catname}.svg');
   width: 74px;
   height: 74px;
   display: block;
+  border-radius: 74px;
+
+  &.active {
+    background: url('../img/pictos/bulkee_section-#{$catname}.svg');
+  }
 }
 
-.meubles      {background: url('../img/pictos/bulkee_section-line-meubles.svg');}
-.deco         {background: url('../img/pictos/bulkee_section-line-deco.svg');}
-.divers       {background: url('../img/pictos/bulkee_section-line-divers.svg');}
-.vetements    {background: url('../img/pictos/bulkee_section-line-vetements.svg');}
-.culture      {background: url('../img/pictos/bulkee_section-line-culture.svg');}
-.jouets       {background: url('../img/pictos/bulkee_section-line-jouets.svg');}
-.multimedia   {background: url('../img/pictos/bulkee_section-line-multimedia.svg');}
-.petitelectro {background: url('../img/pictos/bulkee_section-line-petitelectro.svg');}
-.electro      {background: url('../img/pictos/bulkee_section-line-electro.svg');}
+.meubles      { @include category(meubles, $meubles); }
+.deco         { @include category(deco, $deco); }
+.divers       { @include category(divers, $divers); }
+.vetements    { @include category(vetements, $vetements); }
+.culture      { @include category(culture, $culture); }
+.jouets       { @include category(jouets, $jouets); }
+.multimedia   { @include category(multimedia, $multimedia); }
+.petitelectro { @include category(petitelectro, $petitelectro); }
+.electro      { @include category(electro, $electro); }
 
 
