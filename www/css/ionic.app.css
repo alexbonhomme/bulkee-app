@@ -7771,6 +7771,19 @@ label.item {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1; }
 
+.bar.bar-transparent {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  color: #8CC63F; }
+  .bar.bar-transparent .title {
+    color: #8CC63F; }
+
+.icon-calm {
+  color: #8CC63F; }
+
+.no-header {
+  top: 0; }
+
 .page-login {
   text-align: center; }
   .page-login img {

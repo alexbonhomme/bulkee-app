@@ -64,7 +64,7 @@
                   };
 
                   _.assign(vm.map, tmpMap);
-                  return Map.getBulkiesNearMe(50, position.coords.longitude, position.coords.latitude);
+                  return Map.getBulkiesNearMe(500, position.coords.longitude, position.coords.latitude);
                 })
                 .then(function (bulkies) {
                   vm.bulkies = bulkies;
