@@ -74,8 +74,6 @@
                 id: index++,
                 name: key
               });
-            } else {
-              return null;
             }
           });
 
