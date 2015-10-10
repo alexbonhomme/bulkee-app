@@ -50,9 +50,7 @@
          * @return {[type]} [description]
          */
         function newBulk() {
-
           $ionicPlatform.ready(function () {
-
             // to avoid freeze if the location i to long
             $ionicLoading.show({
               template: '<ion-spinner></ion-spinner>'
@@ -62,8 +60,6 @@
             var deferCamera = $q.defer();
             navigator.camera.getPicture(function (imageURI) {
                 deferCamera.resolve(imageURI);
-
-
             }, function (err) {
                 deferCamera.reject(err);
             }, {
@@ -101,7 +97,8 @@
 
                 // show modal to ask category
                 vm.modal.show();
-
+              })
+              .finally(function () {
                 $timeout(function () {
                   $ionicLoading.hide();
                 }, 1000);
