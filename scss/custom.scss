@@ -1,7 +1,7 @@
 
 
 // General
-// 
+//
 label.item {
 	border-radius: $border-radius-base;
 	margin-bottom: 16px;
@@ -16,8 +16,26 @@ label.item {
 	background-size: cover;
 }
 
+.bar.bar-transparent {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  color: $calm;
+
+  .title {
+    color: $calm;
+  }
+}
+.icon-calm {
+  color: $calm;
+}
+
+.no-header {
+  top: 0;
+}
+
+
 // Button effects
-// 
+//
 /* Push */
 @-webkit-keyframes hvr-push {
   50% {

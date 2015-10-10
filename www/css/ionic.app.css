@@ -7711,6 +7711,19 @@ label.item {
   background: url('../img/bg.png');
   background-size: cover; }
 
+.bar.bar-transparent {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  color: #8CC63F; }
+  .bar.bar-transparent .title {
+    color: #8CC63F; }
+
+.icon-calm {
+  color: #8CC63F; }
+
+.no-header {
+  top: 0; }
+
 /* Push */
 @-webkit-keyframes hvr-push {
   50% {
