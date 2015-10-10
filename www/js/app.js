@@ -15,6 +15,11 @@
                 templateUrl: 'templates/home.html',
                 controller: 'HomeController as HomeCtrl'
             })
+            .state('alerts', {
+                url: '/alerts',
+                templateUrl: 'templates/alerts.html',
+                controller: 'AlertsController as AlertsCtrl'
+            })
             .state('map', {
                 url: '/map',
                 templateUrl: 'templates/map.html',
