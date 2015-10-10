@@ -1,5 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('bulkee.map', []);
+    angular.module('bulkee.map', [
+        'uiGmapgoogle-maps'
+    ]);
 })();
