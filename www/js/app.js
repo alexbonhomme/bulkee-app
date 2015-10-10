@@ -34,6 +34,7 @@
 
     angular.module('bulkee', [
         'ionic',
+        'ionic.service.core',
 
         'bulkee.login',
         'bulkee.home'
