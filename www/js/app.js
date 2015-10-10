@@ -1,19 +1,48 @@
-// Ionic Starter App
+(function () {
+    'use strict';
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+    function config($urlRouterProvider, $stateProvider) {
+        $urlRouterProvider.otherwise('/');
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        $stateProvider
+            .state('login', {
+                url: '/',
+                templateUrl: 'templates/login.html',
+                controller: 'LoginController as LoginCtrl', // controllerAs is bugged with ion-nav-view...
+            })
+            .state('home', {
+                url: '/home',
+                templateUrl: 'templates/home.html',
+                controller: 'HomeController as HomeCtrl'
+            })
+        ;
     }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
+
+    function run($ionicPlatform) {
+        $ionicPlatform.ready(function() {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+
+            if (window.StatusBar) {
+                StatusBar.styleDefault();
+            }
+        });
     }
-  });
-})
+
+    angular.module('bulkee', [
+        'ionic',
+        'ionic.service.core',
+
+        'bulkee.login',
+        'bulkee.home',
+        'bulkee.map',
+        'bulkee.alerts'
+    ])
+
+    .config(['$urlRouterProvider', '$stateProvider', config])
+
+    .run(['$ionicPlatform', run]);
+})();
