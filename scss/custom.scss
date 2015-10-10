@@ -120,7 +120,7 @@ label.item {
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
 }
-.hvr-push:hover, .hvr-push:focus, .hvr-push:active {
+.hvr-push.activated, .hvr-push:hover, .hvr-push:focus, .hvr-push:active {
   -webkit-animation-name: hvr-push;
   animation-name: hvr-push;
   -webkit-animation-duration: 0.3s;
