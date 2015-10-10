@@ -1,0 +1,55 @@
+// Home page
+// 
+.page-home {
+	
+	a {
+		display: block;
+		clear: both;
+		margin: 0 auto;
+	}
+
+	.button-small {
+		height: 78px;
+		margin: 18px auto;
+		padding: 0;
+	}
+
+	.button-large {
+		margin-bottom: 30px;
+	}
+
+	.row-center {
+		height: 100vh;
+		max-width: 286px;
+		margin: 0 auto;
+	}
+
+	.params {
+		width: 78px;
+		height: 78px;
+		background: url('../img/pictos/bulkee_reglages.svg') 0 0;
+		background-size: 78px 78px;
+		opacity: .7
+	}
+
+	.alert {
+		width: 78px;
+		height: 78px;
+		background: url('../img/pictos/bulkee_alerte.svg') 0 0;
+		background-size: 78px 78px;
+	}
+
+	.map {
+		width: 78px;
+		height: 78px;
+		background: url('../img/pictos/bulkee_map.svg') 0 0;
+		background-size: 78px 78px;
+	}
+
+	.add {
+		width: 136px;
+		height: 136px;
+		background: url('../img/pictos/bulkee_oeil.svg') 0 0;
+		background-size: 136px 136px;
+	}
+}

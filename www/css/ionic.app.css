@@ -7715,6 +7715,45 @@ label.item {
   display: block;
   overflow: hidden; }
 
+/* Push */
+@-webkit-keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+.hvr-push {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale; }
+
+.hvr-push:hover, .hvr-push:focus, .hvr-push:active {
+  -webkit-animation-name: hvr-push;
+  animation-name: hvr-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1; }
+
 .page-login {
   text-align: center; }
   .page-login img {
@@ -7731,3 +7770,37 @@ label.item {
     border-right-color: transparent;
     border-bottom-color: #E4E4E4;
     margin: 16px 0; }
+
+.page-home a {
+  display: block;
+  clear: both;
+  margin: 0 auto; }
+.page-home .button-small {
+  height: 78px;
+  margin: 18px auto;
+  padding: 0; }
+.page-home .row-center {
+  height: 100vh;
+  max-width: 286px;
+  margin: 0 auto; }
+.page-home .params {
+  width: 78px;
+  height: 78px;
+  background: url('../img/pictos/bulkee_reglages.svg') 0 0;
+  background-size: 78px 78px;
+  opacity: .7; }
+.page-home .alert {
+  width: 78px;
+  height: 78px;
+  background: url('../img/pictos/bulkee_alerte.svg') 0 0;
+  background-size: 78px 78px; }
+.page-home .map {
+  width: 78px;
+  height: 78px;
+  background: url('../img/pictos/bulkee_map.svg') 0 0;
+  background-size: 78px 78px; }
+.page-home .add {
+  width: 136px;
+  height: 136px;
+  background: url('../img/pictos/bulkee_oeil.svg') 0 0;
+  background-size: 136px 136px; }
