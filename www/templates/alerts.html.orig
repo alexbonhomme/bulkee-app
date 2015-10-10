@@ -1,6 +1,10 @@
 <ion-content class="page-alerts">
 	<div class="bar bar-header bar-calm">
+<<<<<<< HEAD
+	  <button ui-sref="home" class="button button-clear button-arrow-white"></button>
+=======
 	  <button ui-sref="home" class="button button-clear icon ion-arrow-left-c"></button>
+>>>>>>> 3b47c1383c92dfc53f4f1bcc6e96bc51c3e0868e
 	  <h1 class="title">Mes alertes</h1>
 	</div>
 

@@ -1,22 +1,22 @@
 <ion-modal-view>
-  <ion-content style="background: url('{{ HomeCtrl.bulk.pictureURI }}');" class="page-home-modal" scroll="false">
+  <ion-content style="background: url('data:image/jpeg;base64,{{ HomeCtrl.bulk.picture }}');" class="page-home-modal" scroll="false">
     <div class="row row-center categories">
       <div class="col">
 
       <!-- ROW 1 -->
         <div class="row">
           <div class="col col-center">
-            <label class="checkbox category meubles active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category meubles active" ng-click="HomeCtrl.selectCategory('FURNITURE')">
             </label>
           </div>
 
           <div class="col">
-            <label class="checkbox category deco active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category deco active" ng-click="HomeCtrl.selectCategory('DECO')">
             </label>
           </div>
 
           <div class="col">
-            <label class="checkbox category culture active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category culture active" ng-click="HomeCtrl.selectCategory('CULTURE')">
             </label>
           </div>
         </div>
@@ -24,17 +24,17 @@
         <!-- ROW 2 -->
         <div class="row">
           <div class="col">
-            <label class="checkbox category electro active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category electro active" ng-click="HomeCtrl.selectCategory('ELECTRO')">
             </label>
           </div>
 
           <div class="col">
-            <label class="checkbox category multimedia active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category multimedia active" ng-click="HomeCtrl.selectCategory('MULTIMEDIA')">
             </label>
           </div>
 
           <div class="col">
-            <label class="checkbox category petitelectro active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category petitelectro active" ng-click="HomeCtrl.selectCategory('SMALL-ELECTRO')">
             </label>
           </div>
         </div>
@@ -42,17 +42,17 @@
         <!-- ROW 3 -->
         <div class="row">
           <div class="col">
-            <label class="checkbox category vetements active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category vetements active" ng-click="HomeCtrl.selectCategory('CLOTHING')">
             </label>
           </div>
 
           <div class="col">
-            <label class="checkbox category jouets active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category jouets active" ng-click="HomeCtrl.selectCategory('TOYS')">
             </label>
           </div>
 
           <div class="col">
-            <label class="checkbox category divers active" ng-click="HomeCtrl.selectCategory('test')">
+            <label class="checkbox category divers active" ng-click="HomeCtrl.selectCategory('OTHER')">
             </label>
           </div>
         </div>

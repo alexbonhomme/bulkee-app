@@ -16,19 +16,6 @@ body {
 	margin-right: auto;
 }
 
-.button-arrow-white, 
-.button-arrow-green {
-  
-}
-
-.button-arrow-white {
-  background: url('../img/bulkee_fleche-blanche.svg');
-}
-
-.button-arrow-green {
-  background: url('../img/bulkee_fleche-green.svg');
-}
-
 img {
   max-width: 100%;
 }
@@ -50,7 +37,7 @@ hr {
 	.range {
 		padding: 0;
 	}
-} 
+}
 
 label.item {
 	border-radius: $border-radius-base;
@@ -67,7 +54,7 @@ label.item {
 }
 
 .page-home-modal {
-  background-size: cover;
+  // background-size: cover;
 
   .categories {
     background: rgba(0, 15, 0, 0.6);
