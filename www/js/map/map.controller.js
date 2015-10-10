@@ -18,10 +18,8 @@
           },
           zoom: 5,
           options: {
-          disableDefaultUI: !0,
-          mapTypeControl: !1,
-           // tilt: 45
-         }
+            disableDefaultUI: true
+          }
         };
 
         vm.marker = {
