@@ -1,13 +1,41 @@
+label.item {
+	border-radius: $border-radius-base;
+	margin-bottom: 16px;
+}
+
 .pane {
 	background: transparent;
 }
 
-.home {
+.page-login, .page-home {
 	background: url('../img/bg.png');
-	background-position: cover;
-	width: 100vh;
+	background-size: cover;
+	width: 100vw;
 	height: 100vh;
 	display: block;
+	overflow: hidden;
+}
+
+.page-login {
+	text-align: center;
+	img {
+		width: 125px;
+		margin: 0 auto 50px auto;
+		display: block;
+	}
+	.row-center {
+		height: 100vh;
+		max-width: 286px;
+		margin: 0 auto;
+	}
+
+	hr {
+		border-top-color: transparent;
+		border-left-color: transparent;
+		border-right-color: transparent;
+		border-bottom-color: $light;
+		margin: 16px 0;
+	}
 }
 
 .angular-google-map {
