@@ -8,82 +8,82 @@
 		<div class="categories bloc">
 			<div class="row">
 				<div class="col">
-					<label class="checkbox category meubles" ng-class="{'active': meubles}">
-						<input ng-model="meubles" type="checkbox">
+					<label class="checkbox category meubles" ng-class="{'active': AlertsCtrl.category.FURNITURES}">
+						<input ng-model="AlertsCtrl.category.FURNITURES" type="checkbox">
 					</label>
 				</div>
 
 				<div class="col">
-					<label class="checkbox category deco" ng-class="{'active': deco}">
-						<input ng-model="deco" type="checkbox">
+					<label class="checkbox category deco" ng-class="{'active': AlertsCtrl.category.DECO}">
+						<input ng-model="AlertsCtrl.category.DECO" type="checkbox">
 					</label>
 				</div>
 
 				<div class="col">
-					<label class="checkbox category culture" ng-class="{'active': culture}">
-						<input ng-model="culture" type="checkbox">
+					<label class="checkbox category culture" ng-class="{'active': AlertsCtrl.category.CULTURE}">
+						<input ng-model="AlertsCtrl.category.CULTURE" type="checkbox">
 					</label>
 				</div>
 
-				
+
 			</div>
 			<div class="row">
 				<div class="col">
-					<label class="checkbox category electro" ng-class="{'active': electro}">
-						<input ng-model="electro" type="checkbox">
+					<label class="checkbox category electro" ng-class="{'active': AlertsCtrl.category.ELECTRO}">
+						<input ng-model="AlertsCtrl.category.ELECTRO" type="checkbox">
 					</label>
 				</div>
 
 				<div class="col">
-					<label class="checkbox category multimedia" ng-class="{'active': multimedia}">
-						<input ng-model="multimedia" type="checkbox">
+					<label class="checkbox category multimedia" ng-class="{'active': AlertsCtrl.category.MULTIMEDIA}">
+						<input ng-model="AlertsCtrl.category.MULTIMEDIA" type="checkbox">
 					</label>
 				</div>
 
 				<div class="col">
-					<label class="checkbox category petitelectro" ng-class="{'active': petitelectro}">
-						<input ng-model="petitelectro" type="checkbox">
+					<label class="checkbox category petitelectro" ng-class="{'active': AlertsCtrl.category.LITTLEELECTRO}">
+						<input ng-model="AlertsCtrl.category.LITTLEELECTRO" type="checkbox">
 					</label>
 				</div>
-				
+
 			</div>
 			<div class="row">
 				<div class="col">
-					<label class="checkbox category vetements" ng-class="{'active': vetements}">
-						<input ng-model="vetements" type="checkbox">
+					<label class="checkbox category vetements" ng-class="{'active': AlertsCtrl.category.CLOTHES}">
+						<input ng-model="AlertsCtrl.category.CLOTHES" type="checkbox">
 					</label>
 				</div>
 
 				<div class="col">
-					<label class="checkbox category jouets" ng-class="{'active': jouets}">
-						<input ng-model="jouets" type="checkbox">
+					<label class="checkbox category jouets" ng-class="{'active': AlertsCtrl.category.TOYS}">
+						<input ng-model="AlertsCtrl.category.TOYS" type="checkbox">
 					</label>
 				</div>
 
 				<div class="col">
-					<label class="checkbox category divers" ng-class="{'active': divers}">
-						<input ng-model="divers" type="checkbox">
+					<label class="checkbox category divers" ng-class="{'active': AlertsCtrl.category.MISC}">
+						<input ng-model="AlertsCtrl.category.MISC" type="checkbox">
 					</label>
 				</div>
-			</div>			
+			</div>
 		</div>
 
 
 		<div class="bloc">
 			<label>
 				<span class="input-label">Localisation</span>
-				<input type="text">
+				<input type="text" data-ng-model="AlertsCtrl.address">
 			</label>
 		</div>
 
 		<div class="bloc">
 			<div class="range range-calm">
-				<label><span>Distance</span>
-					<input type="range" name="volume" min="0" max="100" value="33">
+				<label><span>Distance</span><span data-ng-bind="AlertsCtrl.distance + 'km'"></span>
+					<input type="range" name="volume" min="0" max="100" data-ng-model="AlertsCtrl.distance">
 				</label>
 			</div>
 		</div>
-			
-		<button class="button button-positive button-block">Enregistrer</button>
+
+		<button class="button button-positive button-block" ng-click="AlertsCtrl.createAlert()">Enregistrer</button>
 	</div>
 </ion-content>
