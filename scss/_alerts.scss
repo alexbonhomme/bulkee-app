@@ -1,0 +1,43 @@
+.categories {
+
+  label {
+    position: relative;
+    display: block;
+    float: left;
+    height: 74px;
+    width: 74px;
+    text-align: center;
+    padding: 0;
+    &:before {
+      left: 0;
+      position: relative;
+      font-size: 38px;
+    }
+
+  	&.checked {
+  		color: red;
+  	}
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.category {
+  width: 74px;
+  height: 74px;
+  display: block;
+}
+
+.meubles      {background: url('../img/pictos/bulkee_section-line-meubles.svg');}
+.deco         {background: url('../img/pictos/bulkee_section-line-deco.svg');}
+.divers       {background: url('../img/pictos/bulkee_section-line-divers.svg');}
+.vetements    {background: url('../img/pictos/bulkee_section-line-vetements.svg');}
+.culture      {background: url('../img/pictos/bulkee_section-line-culture.svg');}
+.jouets       {background: url('../img/pictos/bulkee_section-line-jouets.svg');}
+.multimedia   {background: url('../img/pictos/bulkee_section-line-multimedia.svg');}
+.petitelectro {background: url('../img/pictos/bulkee_section-line-petitelectro.svg');}
+.electro      {background: url('../img/pictos/bulkee_section-line-electro.svg');}
+
+

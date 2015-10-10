@@ -12,10 +12,6 @@ label.item {
 .page-login, .page-home {
 	background: url('../img/bg.png');
 	background-size: cover;
-	width: 100vw;
-	height: 100vh;
-	display: block;
-	overflow: hidden;
 }
 
 // Button effects
@@ -69,3 +65,5 @@ label.item {
 @import "scss/login";
 @import "scss/home";
 @import "scss/map";
+@import "scss/alerts";
+
