@@ -1,12 +1,24 @@
 <ion-view>
   <ion-header-bar align-title="left" class="bar-transparent">
-        <button ui-sref="home" class="button button-clear button-calm icon ion-arrow-left-c"></button>
-    </ion-header-bar>
+    <button ui-sref="home" class="button button-clear button-calm icon ion-arrow-left-c"></button>
+  </ion-header-bar>
 
-    <ion-content class="no-header" scroll="false">
+  <ion-content class="no-header" scroll="false">
+
+    <div ng-class="{
+      'mini-map': MapCtrl.map.reduce,
+      'full-map': !MapCtrl.map.reduce
+    }">
       <ui-gmap-google-map center="MapCtrl.map.center" zoom="MapCtrl.map.zoom" options="MapCtrl.map.options" control="MapCtrl.control">
-        <ui-gmap-marker data-ng-repeat="marker in MapCtrl.markers" coords="marker.coords" idkey="$index">
-        </ui-gmap-marker>
+        <ui-gmap-marker coords="MapCtrl.marker.coords" options="MapCtrl.marker.options" idkey="MapCtrl.marker.id">
+
+        <ui-gmap-markers models="MapCtrl.markers" coords="'coords'" icon="'icon'">
+        </ui-gmap-markers>
       </ui-gmap-google-map>
+    </div>
+
+
+
+
   </ion-content>
 </ion-view>
