@@ -37,7 +37,9 @@
         'ionic.service.core',
 
         'bulkee.login',
-        'bulkee.home'
+        'bulkee.home',
+        'bulkee.map',
+        'bulkee.alerts'
     ])
 
     .config(['$urlRouterProvider', '$stateProvider', config])
