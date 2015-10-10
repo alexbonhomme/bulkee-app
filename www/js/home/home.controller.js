@@ -5,9 +5,9 @@
         .module('bulkee.home')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = [ '$ionicPlatform', '$scope', '$ionicModal' ];
+    HomeController.$inject = [ '$ionicPlatform', '$scope', '$ionicModal', 'Map', '$cordovaGeolocation', '$q', '$ionicLoading', '$timeout' ];
 
-    function HomeController($ionicPlatform, $scope, $ionicModal) {
+    function HomeController($ionicPlatform, $scope, $ionicModal, Map, $cordovaGeolocation, $q, $ionicLoading, $timeout) {
         var vm = this;
 
         // Attributes
@@ -39,26 +39,86 @@
             console.log(vm.bulk);
             console.log('Send bulk!');
 
+            Map.postBulky(vm.bulk);
+
             vm.bulk = {};
           });
         }
 
+        /**
+         * Create a new bulk (take picture, location, etc.)
+         * @return {[type]} [description]
+         */
         function newBulk() {
+
           $ionicPlatform.ready(function () {
-            // navigator.camera.getPicture(function (imageURI) {
-            //     console.log(imageURI);
-            // }, function (err) {
-            //     console.error(err);
+
+            // to avoid freeze if the location i to long
+            $ionicLoading.show({
+              template: '<ion-spinner></ion-spinner>'
+            });
+
+            // Get picture (promise)
+            var deferCamera = $q.defer();
+            navigator.camera.getPicture(function (imageURI) {
+                deferCamera.resolve(imageURI);
+
+
+            }, function (err) {
+                deferCamera.reject(err);
+            }, {
+              // base64 image
+              destinationType: Camera.DestinationType.DATA_URL
+            });
+            // $ionicLoading.show({
+            //     template: '<ion-spinner></ion-spinner>'
             // });
-            vm.bulk.pictureURI = "img/canap2.jpg";
+            // deferCamera.resolve("img/canap2.jpg");
 
-            vm.modal.show();
+            // Get location (promise)
+            var locationPromise = $cordovaGeolocation
+              .getCurrentPosition({
+                enableHighAccuracy: false,
+                timeout: 10000
+              });
 
+            // Wait for all promises and build bulk object
+            $q.all([ deferCamera.promise, locationPromise ])
+              .then(function (data) {
+
+                vm.bulk = {
+                  picture: data[0],
+                  position: [
+                    data[1].latitude,
+                    data[1].longitude
+                  ],
+                  description: "",
+                  author: {
+                    "id": "561841994f4048454322f702",
+                    "name": "Benjamin COENEN"
+                  }
+                };
+
+                // show modal to ask category
+                vm.modal.show();
+
+                $timeout(function () {
+                  $ionicLoading.hide();
+                }, 1000);
+              });
           });
         }
 
+        /**
+         * Put a category to the bulk and close the modal
+         * @param  {[type]} category [description]
+         * @return {[type]}          [description]
+         */
         function selectCategory(category) {
-          vm.bulk.category = category;
+          vm.bulk.category = {
+            "id": 3,
+            "name": "MULTIMEDIA"
+          };
 
           vm.modal.hide();
         }
