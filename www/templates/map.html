@@ -10,8 +10,10 @@
       'full-map': !MapCtrl.map.reduce
     }">
       <ui-gmap-google-map center="MapCtrl.map.center" zoom="MapCtrl.map.zoom" options="MapCtrl.map.options" control="MapCtrl.control">
-        <ui-gmap-marker data-ng-repeat="marker in MapCtrl.markers" coords="marker.coords" idkey="$index">
-        </ui-gmap-marker>
+        <ui-gmap-marker coords="MapCtrl.marker.coords" options="MapCtrl.marker.options" idkey="MapCtrl.marker.id">
+
+        <ui-gmap-markers models="MapCtrl.markers" coords="'coords'" icon="'icon'">
+        </ui-gmap-markers>
       </ui-gmap-google-map>
     </div>
 

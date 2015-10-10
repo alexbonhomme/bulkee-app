@@ -46,15 +46,16 @@
               $cordovaGeolocation
                 .getCurrentPosition(posOptions)
                 .then(function (position) {
-                  vm.markers.push({
+                  vm.marker = {
+                    id: 0,
                     coords: {
                       latitude: position.coords.latitude,
                       longitude: position.coords.longitude
                     },
                     options: {
-                      icon : './img/pictos/bulkee_fiche-pin.svg'
+                      icon : 'img/pictos/bulkee_fiche-pin.svg'
                     }
-                  });
+                  };
                   var tmpMap = {
                     center : {
                       latitude: position.coords.latitude,
@@ -64,21 +65,22 @@
                   };
 
                   _.assign(vm.map, tmpMap);
+
                   return Map.getBulkiesNearMe(500, position.coords.longitude, position.coords.latitude);
                 })
                 .then(function (bulkies) {
                   vm.bulkies = bulkies;
                   bulkies.forEach(function (bulky, id) {
                     vm.markers.push({
+                      id: bulky._id,
                       coords: {
                         longitude: bulky.position[1],
                         latitude: bulky.position[0]
                       },
-                      options: {
-                        icon : './img/pictos/bulkee_fiche-pin.svg'
-                      }
+                      icon: 'img/pictos/bulkee_fiche-pin.svg'
                     });
                   });
+
                   return uiGmapGoogleMapApi;
                 })
                 .catch(function (err) {
@@ -88,6 +90,13 @@
                   $ionicLoading.hide();
                 });
             });
+        }
+
+        function getIconURL(category) {
+          switch(category) {
+            case '':
+              return ;
+          }
         }
     }
 })();
