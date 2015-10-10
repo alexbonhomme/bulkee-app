@@ -18,8 +18,8 @@
           },
           zoom: 5,
           options: {
-           disableDefaultUI: !0,
-           mapTypeControl: !1,
+          disableDefaultUI: !0,
+          mapTypeControl: !1,
            // tilt: 45
          }
         };
@@ -31,29 +31,10 @@
         init();
 
         function init() {
-          Map.getBulkiesNearMe()
-            .then(function (bulkies) {
-              vm.bulkies = bulkies;
-              vm.markers = bulkies.map(function (bulky, id) {
-                return {
-                  coords: {
-                    longitude: bulky.position[1],
-                    latitude: bulky.position[0]
-                  }
-                };
-              });
-              console.log('markers : ', vm.markers);
-              return uiGmapGoogleMapApi;
-            })
-            .then(function (maps) {
-              console.log('map', maps);
-              console.log("Map ready!");
-            });
             // Show loading overlay
             $ionicLoading.show({
                 template: '<ion-spinner></ion-spinner>'
             });
-
 
 
             $ionicPlatform.ready(function () {
@@ -70,7 +51,9 @@
                       latitude: position.coords.latitude,
                       longitude: position.coords.longitude
                     },
-                    icon : 'http://images.clipartpanda.com/location-icon-map-pin-map-icon.png'
+                    options: {
+                      icon : './img/pictos/bulkee_fiche-pin.svg'
+                    }
                   });
                   var tmpMap = {
                     center : {
@@ -81,14 +64,27 @@
                   };
 
                   _.assign(vm.map, tmpMap);
-                  // _.assign(vm.marker, marker);
-
-                  // Hide overlay
-                  $ionicLoading.hide();
-                }, function (err) {
-                  // error report
-                  console.error(err);
-
+                  return Map.getBulkiesNearMe(50, position.coords.longitude, position.coords.latitude);
+                })
+                .then(function (bulkies) {
+                  vm.bulkies = bulkies;
+                  vm.markers = bulkies.map(function (bulky, id) {
+                    return {
+                      coords: {
+                        longitude: bulky.position[1],
+                        latitude: bulky.position[0]
+                      },
+                      options: {
+                        icon : './img/pictos/bulkee_fiche-pin.svg'
+                      }
+                    };
+                  });
+                  return uiGmapGoogleMapApi;
+                })
+                .catch(function (err) {
+                  console.log(err);
+                })
+                .finally(function () {
                   $ionicLoading.hide();
                 });
             });
