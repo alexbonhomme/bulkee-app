@@ -25,6 +25,11 @@
               templateUrl: 'templates/profile.html',
               controller: 'ProfileController as ProfileCtrl'
           })
+          .state('badges', {
+              url: '/badges',
+              templateUrl: 'templates/badges.html'
+              // controller: 'ProfileController as ProfileCtrl'
+          })
           .state('alerts', {
               url: '/alerts',
               templateUrl: 'templates/alerts.html',
