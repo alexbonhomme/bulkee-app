@@ -7828,6 +7828,9 @@ label.item {
   .angular-google-map .angular-google-map-container {
     height: 100%; }
 
+.page-alerts {
+  background: #fff; }
+
 .categories {
   max-width: 286px;
   border: solid 1px #ddd;
