@@ -50,12 +50,9 @@
             // }, function (err) {
             //     console.error(err);
             // });
-            vm.bulk.imageURI = "img/canap2.jpg";
+            vm.bulk.pictureURI = "img/canap2.jpg";
 
             vm.modal.show();
-
-
-
 
           });
         }
