@@ -68,8 +68,8 @@
                 })
                 .then(function (bulkies) {
                   vm.bulkies = bulkies;
-                  vm.markers = bulkies.map(function (bulky, id) {
-                    return {
+                  bulkies.forEach(function (bulky, id) {
+                    vm.markers.push({
                       coords: {
                         longitude: bulky.position[1],
                         latitude: bulky.position[0]
@@ -77,7 +77,7 @@
                       options: {
                         icon : './img/pictos/bulkee_fiche-pin.svg'
                       }
-                    };
+                    });
                   });
                   return uiGmapGoogleMapApi;
                 })
