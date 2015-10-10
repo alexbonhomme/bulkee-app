@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    function config($urlRouterProvider, $stateProvider) {
+    function config($urlRouterProvider, $stateProvider, uiGmapGoogleMapApiProvider) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
@@ -15,7 +15,18 @@
                 templateUrl: 'templates/home.html',
                 controller: 'HomeController as HomeCtrl'
             })
+            .state('map', {
+                url: '/map',
+                templateUrl: 'templates/map.html',
+                controller: 'MapController as MapCtrl'
+            })
         ;
+
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyDPj81ZZ7kkB_fexihCRowKjtd7XqrC2QQ',
+            v: '3.20', //defaults to latest 3.X anyhow
+            libraries: 'weather,geometry,visualization'
+        });
     }
 
     function run($ionicPlatform) {
@@ -35,14 +46,16 @@
     angular.module('bulkee', [
         'ionic',
         'ionic.service.core',
+        'uiGmapgoogle-maps',
 
+        // Application modules
         'bulkee.login',
         'bulkee.home',
         'bulkee.map',
         'bulkee.alerts'
     ])
 
-    .config(['$urlRouterProvider', '$stateProvider', config])
+    .config(['$urlRouterProvider', '$stateProvider', 'uiGmapGoogleMapApiProvider', config])
 
     .run(['$ionicPlatform', run]);
 })();
