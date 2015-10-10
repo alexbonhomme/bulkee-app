@@ -104,6 +104,22 @@ label.item {
   animation-iteration-count: 1;
 }
 
+.bar.bar-transparent {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  color: $calm;
+
+  .title {
+    color: $calm;
+  }
+}
+.icon-calm {
+  color: $calm;
+}
+
+.no-header {
+  top: 0;
+}
 @import "scss/login";
 @import "scss/home";
 @import "scss/map";
