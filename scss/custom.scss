@@ -8,11 +8,25 @@ body {
 .content {
 	padding-left: 30px;
 	padding-right: 30px;
+  background: #fff;
 }
 
 .button-block {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.button-arrow-white, 
+.button-arrow-green {
+  
+}
+
+.button-arrow-white {
+  background: url('../img/bulkee_fleche-blanche.svg');
+}
+
+.button-arrow-green {
+  background: url('../img/bulkee_fleche-green.svg');
 }
 
 img {
