@@ -1,12 +1,5 @@
 .level {
 	text-align: center;
-	h2 {
-		color: $energized;
-		text-transform: uppercase;
-		font-size: 18px;
-		font-weight: 200;
-		margin: 10px auto;
-	}
 	img {
 		width: 215px;
 		height: auto;
@@ -27,4 +20,21 @@
 .page-profile {
 	font-size: 12px;
 	background: #fff;
+}
+
+.b {
+	background: $energized;
+	border-radius: 50px;
+	display: block;
+	width: 50px;
+	height: 50px;
+	&.add {
+		background: transparent;
+		border: solid 1px $energized;
+		font-size: 29px;
+		color: $energized;
+		text-align: center;
+		font-weight: 200;
+		padding: 13px 0;
+	}
 }
