@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="content has-header padding">
-		<div class="categories">
+		<div class="categories bloc">
 			<div class="row">
 				<div class="col">
 					<label class="checkbox category meubles" ng-class="{'active': meubles}">
@@ -20,31 +20,20 @@
 				</div>
 
 				<div class="col">
-					<label class="checkbox category divers" ng-class="{'active': divers}">
-						<input ng-model="divers" type="checkbox">
-					</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<label class="checkbox category vetements" ng-class="{'active': vetements}">
-						<input ng-model="vetements" type="checkbox">
-					</label>
-				</div>
-
-				<div class="col">
 					<label class="checkbox category culture" ng-class="{'active': culture}">
 						<input ng-model="culture" type="checkbox">
 					</label>
 				</div>
 
-				<div class="col">
-					<label class="checkbox category jouets" ng-class="{'active': jouets}">
-						<input ng-model="jouets" type="checkbox">
-					</label>
-				</div>
+				
 			</div>
 			<div class="row">
+				<div class="col">
+					<label class="checkbox category electro" ng-class="{'active': electro}">
+						<input ng-model="electro" type="checkbox">
+					</label>
+				</div>
+
 				<div class="col">
 					<label class="checkbox category multimedia" ng-class="{'active': multimedia}">
 						<input ng-model="multimedia" type="checkbox">
@@ -56,28 +45,43 @@
 						<input ng-model="petitelectro" type="checkbox">
 					</label>
 				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="checkbox category vetements" ng-class="{'active': vetements}">
+						<input ng-model="vetements" type="checkbox">
+					</label>
+				</div>
 
 				<div class="col">
-					<label class="checkbox category electro" ng-class="{'active': electro}">
-						<input ng-model="electro" type="checkbox">
+					<label class="checkbox category jouets" ng-class="{'active': jouets}">
+						<input ng-model="jouets" type="checkbox">
+					</label>
+				</div>
+
+				<div class="col">
+					<label class="checkbox category divers" ng-class="{'active': divers}">
+						<input ng-model="divers" type="checkbox">
 					</label>
 				</div>
 			</div>			
 		</div>
 
 
-		<div class="list">
-			<label class="item item-input">
+		<div class="bloc">
+			<label>
 				<span class="input-label">Localisation</span>
 				<input type="text">
 			</label>
 		</div>
 
-		<div class="list">
-		  <div class="item range range-calm">
-		  	<label for="">Distance</label>
-		    <input type="range" name="volume" min="0" max="100" value="33">
-		  </div>
+		<div class="bloc">
+			<div class="range range-calm">
+				<label><span>Distance</span>
+					<input type="range" name="volume" min="0" max="100" value="33">
+				</label>
+			</div>
 		</div>
 			
 		<button class="button button-positive button-block">Enregistrer</button>
