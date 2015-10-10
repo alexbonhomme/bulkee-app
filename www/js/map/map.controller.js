@@ -16,17 +16,16 @@
                 latitude: 50.62925,
                 longitude: 3.05725
             },
-            zoom: 14
+            zoom: 5,
+            options: {
+               disableDefaultUI: !0,
+               mapTypeControl: !1,
+               // tilt: 45
+           }
         };
 
-        vm.markers = {
-            current: {
-                id: 0,
-                coords: {
-                    // latitude: 50.62925,
-                    // longitude: 3.05725
-                }
-            }
+        vm.marker = {
+            id: 0,
         };
 
         init();
@@ -45,21 +44,30 @@
 
             $ionicPlatform.ready(function () {
                 var posOptions = {
-                    enableHighAccuracy: true,
-                    timeout: 20000,
-                    maximumAge: 0
+                    enableHighAccuracy: false,
+                    timeout: 10000
                 };
 
                 $cordovaGeolocation
                     .getCurrentPosition(posOptions)
                     .then(function (position) {
-                        // Center the map
-                        vm.map.center.latitude = position.coords.latitude;
-                        vm.map.center.longitude = position.coords.longitude;
+                        var marker = {
+                            id: 0,
+                            coords: {
+                                latitude: position.coords.latitude,
+                                longitude: position.coords.longitude
+                            }
+                        };
+                        var tmpMap = {
+                            center : {
+                                latitude: position.coords.latitude,
+                                longitude: position.coords.longitude
+                            },
+                            zoom : 15
+                        };
 
-                        // Current position marker
-                        vm.markers.current.coords.latitude = position.coords.latitude;
-                        vm.markers.current.coords.longitude = position.coords.longitude;
+                        _.assign(vm.map, tmpMap);
+                        _.assign(vm.marker, marker);
 
                         // Hide overlay
                         $ionicLoading.hide();
@@ -71,7 +79,6 @@
                     })
                 ;
             });
-
         }
     }
 })();
