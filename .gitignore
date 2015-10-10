@@ -5,3 +5,6 @@ node_modules/
 platforms/
 plugins/
 .DS_store
+
+www/css/ionic.app.css
+www/css/ionic.app.min.css

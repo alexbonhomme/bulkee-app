@@ -25,6 +25,7 @@
     width: 74px;
     text-align: center;
     padding: 0;
+    margin: auto;
 
   	&.checked {
   		color: red;
@@ -38,7 +39,7 @@
 
 
 // Colors
-// 
+//
 $meubles:       #8CC63F;
 $deco:          #CBE021;
 $divers:        #999999;

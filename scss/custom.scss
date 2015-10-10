@@ -40,6 +40,19 @@ label.item {
 	background-size: cover;
 }
 
+.page-home-modal {
+  background-size: cover;
+
+  .categories {
+    background: rgba(0, 15, 0, 0.6);
+    height: 100%;
+    margin: 0 auto;
+    padding: 8px;
+    max-width: none;
+    border: none;
+  }
+}
+
 .bar.bar-transparent {
   border: none;
   background: rgba(255, 255, 255, 0.5);
@@ -106,7 +119,22 @@ label.item {
   animation-iteration-count: 1;
 }
 
+.bar.bar-transparent {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  color: $calm;
 
+  .title {
+    color: $calm;
+  }
+}
+.icon-calm {
+  color: $calm;
+}
+
+.no-header {
+  top: 0;
+}
 @import "scss/login";
 @import "scss/home";
 @import "scss/map";
