@@ -16,7 +16,17 @@
                 latitude: currentLocation.latitude,
                 longitude: currentLocation.longitude
             },
-            zoom: 8
+            zoom: 14
+        };
+
+        vm.markers = {
+            current: {
+                id: 0,
+                coords: {
+                    latitude: currentLocation.latitude,
+                    longitude: currentLocation.longitude
+                }
+            }
         };
 
         init();
