@@ -9,7 +9,7 @@
 
     function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, Map) {
         var vm = this;
-        vm.markers = [];
+
         // Attributes
         vm.map = {
           center: {
@@ -19,12 +19,14 @@
           zoom: 5,
           options: {
             disableDefaultUI: true
-          }
+          },
+          reduce: false
         };
 
         vm.marker = {
             id: 0,
         };
+        vm.markers = [];
 
         init();
 
