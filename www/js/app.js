@@ -1,12 +1,24 @@
 (function () {
     'use strict';
 
-    angular.module('bulkee', [
-        'ionic',
-        'bulkee.home'
-    ])
+    function config($urlRouterProvider, $stateProvider) {
+        $urlRouterProvider.otherwise('/');
 
-    .run(function($ionicPlatform) {
+        $stateProvider
+            .state('login', {
+                url: '/',
+                templateUrl: 'templates/login.html',
+                controller: 'LoginController as LoginCtrl', // controllerAs is bugged with ion-nav-view...
+            })
+            .state('home', {
+                url: '/home',
+                templateUrl: 'templates/home.html',
+                controller: 'HomeController as HomeCtrl'
+            })
+        ;
+    }
+
+    function run($ionicPlatform) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -18,5 +30,16 @@
                 StatusBar.styleDefault();
             }
         });
-    });
+    }
+
+    angular.module('bulkee', [
+        'ionic',
+
+        'bulkee.login',
+        'bulkee.home'
+    ])
+
+    .config(['$urlRouterProvider', '$stateProvider', config])
+
+    .run(['$ionicPlatform', run]);
 })();
