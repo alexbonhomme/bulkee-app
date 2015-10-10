@@ -7829,43 +7829,97 @@ label.item {
   width: 74px;
   text-align: center;
   padding: 0; }
-  .categories label:before {
-    left: 0;
-    position: relative;
-    font-size: 38px; }
   .categories label.checked {
     color: red; }
 .categories input {
   display: none; }
 
-.category {
+.meubles {
+  border: solid 2px #8CC63F;
+  background: url('../img/pictos/bulkee_section-line-meubles.svg');
   width: 74px;
   height: 74px;
-  display: block; }
-
-.meubles {
-  background: url('../img/pictos/bulkee_section-line-meubles.svg'); }
+  display: block;
+  border-radius: 74px; }
+  .meubles.active {
+    background: url('../img/pictos/bulkee_section-meubles.svg'); }
 
 .deco {
-  background: url('../img/pictos/bulkee_section-line-deco.svg'); }
+  border: solid 2px #CBE021;
+  background: url('../img/pictos/bulkee_section-line-deco.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .deco.active {
+    background: url('../img/pictos/bulkee_section-deco.svg'); }
 
 .divers {
-  background: url('../img/pictos/bulkee_section-line-divers.svg'); }
+  border: solid 2px #999999;
+  background: url('../img/pictos/bulkee_section-line-divers.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .divers.active {
+    background: url('../img/pictos/bulkee_section-divers.svg'); }
 
 .vetements {
-  background: url('../img/pictos/bulkee_section-line-vetements.svg'); }
+  border: solid 2px #ED6754;
+  background: url('../img/pictos/bulkee_section-line-vetements.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .vetements.active {
+    background: url('../img/pictos/bulkee_section-vetements.svg'); }
 
 .culture {
-  background: url('../img/pictos/bulkee_section-line-culture.svg'); }
+  border: solid 2px #FBB07F;
+  background: url('../img/pictos/bulkee_section-line-culture.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .culture.active {
+    background: url('../img/pictos/bulkee_section-culture.svg'); }
 
 .jouets {
-  background: url('../img/pictos/bulkee_section-line-jouets.svg'); }
+  border: solid 2px #FF99AC;
+  background: url('../img/pictos/bulkee_section-line-jouets.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .jouets.active {
+    background: url('../img/pictos/bulkee_section-jouets.svg'); }
 
 .multimedia {
-  background: url('../img/pictos/bulkee_section-line-multimedia.svg'); }
+  border: solid 2px #29ABE2;
+  background: url('../img/pictos/bulkee_section-line-multimedia.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .multimedia.active {
+    background: url('../img/pictos/bulkee_section-multimedia.svg'); }
 
 .petitelectro {
-  background: url('../img/pictos/bulkee_section-line-petitelectro.svg'); }
+  border: solid 2px #00A99D;
+  background: url('../img/pictos/bulkee_section-line-petitelectro.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .petitelectro.active {
+    background: url('../img/pictos/bulkee_section-petitelectro.svg'); }
 
 .electro {
-  background: url('../img/pictos/bulkee_section-line-electro.svg'); }
+  border: solid 2px #0071BC;
+  background: url('../img/pictos/bulkee_section-line-electro.svg');
+  width: 74px;
+  height: 74px;
+  display: block;
+  border-radius: 74px; }
+  .electro.active {
+    background: url('../img/pictos/bulkee_section-electro.svg'); }
