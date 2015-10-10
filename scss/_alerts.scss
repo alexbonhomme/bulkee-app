@@ -1,4 +1,10 @@
 .categories {
+  max-width: 286px;
+  border: solid 1px #ddd;
+  border-radius: $border-radius-base;
+  margin: 18px auto;
+  padding: 8px;
+
   label {
     position: relative;
     display: block;
@@ -33,7 +39,6 @@ $electro:       #0071BC;
 
 
 @mixin category($catname, $color) {
-  border: solid 2px $color;
   background: url('../img/pictos/bulkee_section-line-#{$catname}.svg');
   width: 74px;
   height: 74px;
@@ -55,4 +60,7 @@ $electro:       #0071BC;
 .petitelectro { @include category(petitelectro, $petitelectro); }
 .electro      { @include category(electro, $electro); }
 
-
+.list {
+  max-width: 286px;
+  margin: 0 auto;
+}

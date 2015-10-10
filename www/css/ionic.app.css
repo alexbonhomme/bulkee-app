@@ -7700,6 +7700,14 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+body {
+  background: #fff; }
+
+.button-block {
+  max-width: 286px;
+  margin-left: auto;
+  margin-right: auto; }
+
 label.item {
   border-radius: 4px;
   margin-bottom: 16px; }
@@ -7770,7 +7778,6 @@ label.item {
     margin: 0 auto 50px auto;
     display: block; }
   .page-login .row-center {
-    height: 100vh;
     max-width: 286px;
     margin: 0 auto; }
   .page-login hr {
@@ -7821,21 +7828,26 @@ label.item {
   .angular-google-map .angular-google-map-container {
     height: 100%; }
 
-.categories label {
-  position: relative;
-  display: block;
-  float: left;
-  height: 74px;
-  width: 74px;
-  text-align: center;
-  padding: 0; }
-  .categories label.checked {
-    color: red; }
-.categories input {
-  display: none; }
+.categories {
+  max-width: 286px;
+  border: solid 1px #ddd;
+  border-radius: 4px;
+  margin: 18px auto;
+  padding: 8px; }
+  .categories label {
+    position: relative;
+    display: block;
+    float: left;
+    height: 74px;
+    width: 74px;
+    text-align: center;
+    padding: 0; }
+    .categories label.checked {
+      color: red; }
+  .categories input {
+    display: none; }
 
 .meubles {
-  border: solid 2px #8CC63F;
   background: url('../img/pictos/bulkee_section-line-meubles.svg');
   width: 74px;
   height: 74px;
@@ -7845,7 +7857,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-meubles.svg'); }
 
 .deco {
-  border: solid 2px #CBE021;
   background: url('../img/pictos/bulkee_section-line-deco.svg');
   width: 74px;
   height: 74px;
@@ -7855,7 +7866,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-deco.svg'); }
 
 .divers {
-  border: solid 2px #999999;
   background: url('../img/pictos/bulkee_section-line-divers.svg');
   width: 74px;
   height: 74px;
@@ -7865,7 +7875,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-divers.svg'); }
 
 .vetements {
-  border: solid 2px #ED6754;
   background: url('../img/pictos/bulkee_section-line-vetements.svg');
   width: 74px;
   height: 74px;
@@ -7875,7 +7884,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-vetements.svg'); }
 
 .culture {
-  border: solid 2px #FBB07F;
   background: url('../img/pictos/bulkee_section-line-culture.svg');
   width: 74px;
   height: 74px;
@@ -7885,7 +7893,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-culture.svg'); }
 
 .jouets {
-  border: solid 2px #FF99AC;
   background: url('../img/pictos/bulkee_section-line-jouets.svg');
   width: 74px;
   height: 74px;
@@ -7895,7 +7902,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-jouets.svg'); }
 
 .multimedia {
-  border: solid 2px #29ABE2;
   background: url('../img/pictos/bulkee_section-line-multimedia.svg');
   width: 74px;
   height: 74px;
@@ -7905,7 +7911,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-multimedia.svg'); }
 
 .petitelectro {
-  border: solid 2px #00A99D;
   background: url('../img/pictos/bulkee_section-line-petitelectro.svg');
   width: 74px;
   height: 74px;
@@ -7915,7 +7920,6 @@ label.item {
     background: url('../img/pictos/bulkee_section-petitelectro.svg'); }
 
 .electro {
-  border: solid 2px #0071BC;
   background: url('../img/pictos/bulkee_section-line-electro.svg');
   width: 74px;
   height: 74px;
@@ -7923,3 +7927,7 @@ label.item {
   border-radius: 74px; }
   .electro.active {
     background: url('../img/pictos/bulkee_section-electro.svg'); }
+
+.list {
+  max-width: 286px;
+  margin: 0 auto; }
