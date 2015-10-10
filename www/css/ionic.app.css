@@ -7779,6 +7779,8 @@ label.item {
   height: 78px;
   margin: 18px auto;
   padding: 0; }
+.page-home .button-large {
+  margin-bottom: 30px; }
 .page-home .row-center {
   height: 100vh;
   max-width: 286px;
@@ -7804,3 +7806,8 @@ label.item {
   height: 136px;
   background: url('../img/pictos/bulkee_oeil.svg') 0 0;
   background-size: 136px 136px; }
+
+.angular-google-map {
+  height: 100%; }
+  .angular-google-map .angular-google-map-container {
+    height: 100%; }
