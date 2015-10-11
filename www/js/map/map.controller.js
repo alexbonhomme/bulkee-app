@@ -5,9 +5,9 @@
         .module('bulkee.map')
         .controller('MapController', MapController);
 
-    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', 'Map'];
+    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', 'Map', '$timeout'];
 
-    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, Map) {
+    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, Map, $timeout) {
         var vm = this;
 
         // Attributes
@@ -22,12 +22,22 @@
           },
           fullSize: true
         };
+        vm.showMap = true;
 
         vm.marker = {
           id: 0,
         };
         vm.markers = [];
-        vm.currentModel = {};
+
+        // DO NOT TOUCH THIS OBJECT
+        vm.currentModel = {
+          icon: {
+            scaledSize: {}
+          }
+        };
+
+        // vm.openBulkee = openBulkee;
+
         vm.dateFrom = {};
         init();
 
@@ -36,7 +46,6 @@
             $ionicLoading.show({
                 template: '<ion-spinner></ion-spinner>'
             });
-
 
             $ionicPlatform.ready(function () {
               var posOptions = {
@@ -85,18 +94,30 @@
                       icon: {
                         url: getIconURL(bulky.category.name),
 
-                        scaledSize: new google.maps.Size(44, 44)
+                        scaledSize: new google.maps.Size(38, 38)
                       },
                       viewBulky: function (model, event) {
+                        // reset previous marker icon size
+                        vm.currentModel.icon.scaledSize = new google.maps.Size(38, 38);
+
+                        // update with new marker model
                         vm.currentModel = model.model;
+                        vm.currentModel.icon.scaledSize = new google.maps.Size(58, 58);
                         vm.map.fullSize = false;
 
-                        var now = new Date();
+                        // hack to resize map
+                        vm.showMap = false;
+                        $timeout(function (){
+                          vm.map.center = angular.copy(vm.currentModel.coords);
+
+                          vm.showMap = true;
+                        }, 10);
 
                         vm.dateFrom = moment(model.model.date).fromNow();
                       },
                       picture: bulky.picture,
-                      address: bulky.address,                      
+                      address: bulky.address,
+                      author: bulky.author,                    
                       date: bulky.createdAt
                     });
                   });
