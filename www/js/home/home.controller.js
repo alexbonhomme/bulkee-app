@@ -69,36 +69,50 @@
             // deferCamera.resolve("img/canape.jpg");
 
             // Get location (promise)
-            var locationPromise = $cordovaGeolocation
+            var deferLocation = $q.defer();
+            $cordovaGeolocation
               .getCurrentPosition({
                 enableHighAccuracy: false,
                 timeout: 10000
-              });
+              })
+              .then(function (location) {
+                // Geocoding
+                Map.getAddress(location.coords.longitude, location.coords.latitude)
+                  .then(function (address) {
+                    // Resolve location promise
+                    deferLocation.resolve({
+                      coords: location.coords,
+                      address: address
+                    });
+                  }, function (err) {
+                    deferLocation.reject(err);
+                  });
+              }, function (err) {
+                deferLocation.reject(err);
+              })
+            ;
 
             // Wait for all promises and build bulk object
-            $q.all([ deferCamera.promise, locationPromise ])
+            $q.all([ deferCamera.promise, deferLocation.promise ])
               .then(function (data) {
-                Map.getAddress(data[1].coords.longitude, data[1].coords.latitude)
-                  .then(function (address) {
-                    vm.bulk = {
-                      picture: data[0],
-                      position: [
-                        data[1].coords.latitude,
-                        data[1].coords.longitude
-                      ],
-                      address: address,
-                      description: 'test',
-                      author: {
-                        id: '561841994f4048454322f702',
-                        name: 'Benjamin COENEN'
-                      }
-                    };
-
-                    // show modal to ask category
-                    vm.modal.show();
-                  });
+                vm.bulk = {
+                  picture: data[0],
+                  position: [
+                    data[1].coords.latitude,
+                    data[1].coords.longitude
+                  ],
+                  address: data[1].address,
+                  description: 'test',
+                  author: {
+                    id: '561841994f4048454322f702',
+                    name: 'Benjamin COENEN'
+                  }
+                };
               })
               .finally(function () {
+                // show modal to ask category
+                vm.modal.show();
+
                 $timeout(function () {
                   $ionicLoading.hide();
                 }, 1000);
