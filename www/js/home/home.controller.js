@@ -9,7 +9,7 @@
 
     function HomeController($ionicPlatform, $scope, $ionicModal, Map, $cordovaGeolocation, $q, $ionicLoading, $timeout) {
         var vm = this;
-
+        vm.category = {};
         // Attributes
         vm.bulk = {};
 
@@ -78,22 +78,25 @@
             // Wait for all promises and build bulk object
             $q.all([ deferCamera.promise, locationPromise ])
               .then(function (data) {
+                Map.getAddress(data[1].coords.longitude, data[1].coords.latitude)
+                  .then(function (address) {
+                    vm.bulk = {
+                      picture: data[0],
+                      position: [
+                        data[1].coords.longitude,
+                        data[1].coords.latitude
+                      ],
+                      address: address,
+                      description: 'test',
+                      author: {
+                        id: '561841994f4048454322f702',
+                        name: 'Benjamin COENEN'
+                      }
+                    };
 
-                vm.bulk = {
-                  picture: data[0],
-                  position: [
-                    data[1].latitude,
-                    data[1].longitude
-                  ],
-                  description: "",
-                  author: {
-                    "id": "561841994f4048454322f702",
-                    "name": "Benjamin COENEN"
-                  }
-                };
-
-                // show modal to ask category
-                vm.modal.show();
+                    // show modal to ask category
+                    vm.modal.show();
+                  });
               })
               .finally(function () {
                 $timeout(function () {
@@ -108,11 +111,13 @@
          * @param  {[type]} category [description]
          * @return {[type]}          [description]
          */
-        function selectCategory(category) {
-          vm.bulk.category = {
-            "id": 3,
-            "name": "MULTIMEDIA"
-          };
+        function selectCategory(category, id) {
+          vm.bulk = _.assign(vm.bulk, {
+            category : {
+              id: id,
+              name: category
+            }
+          });
 
           vm.modal.hide();
         }

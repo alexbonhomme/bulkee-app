@@ -8,12 +8,27 @@
 
 .mini-map {
 	height: 100%;
-	.angular-google-map {
-		height: 50vh;
+	display: flex;
+	flex-direction: column;
+	ui-gmap-google-map.angular-google-map {
+		flex: 1;
+		position: relative;
+	}
+	div.angular-google-map {
+		position: absolute;
+	    top: 0;
+	    bottom: -24px;
+	    display: block;
+	    left: 0;
+	    right: 0;
 	}
   	.bulk-details {
-		height: 55vh;
-		margin-top: -5vh;
+  		// bottom: 0;
+  		// position: absolute;
+  		flex: 1;
+  		justify-content: flex-end;
+		// height: 55vh;
+		// margin-top: -5vh;
 	} 
 }
 
@@ -32,6 +47,11 @@
 	position: relative;
 	box-shadow: 0 0 8px rgba(0,0,0,.3);
 	.infos {
+		background: #fff;
+		position: absolute;
+		bottom: 0;
+		z-index: 10;
+		width: 100%;
 		padding: 12px 25px;
 	}
 
@@ -42,7 +62,6 @@
 	}
 
 	.photo {
-		max-height: 217px;
 		overflow: hidden;
 		img {
 			width: 100%;
@@ -59,9 +78,10 @@
 	height: 84px;
 	display: block;
 	position: absolute;
-	top: 145px;
+	bottom: 25%;
 	right: 25px;
 	border-radius: 84px;
+	z-index: 30;
 }
 
 .time {
@@ -89,4 +109,9 @@
 	background: url('../img/pictos/bulkee_fiche-user.svg') 0 center no-repeat;
 	background-size: 10px 13px;
 	font-size: 12px;
+} 
+
+.no-header,
+.platform-ios.platform-cordova .no-header {
+	top: 0 !important;
 }
