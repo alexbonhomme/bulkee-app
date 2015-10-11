@@ -5,9 +5,9 @@
         .module('bulkee.map')
         .controller('MapController', MapController);
 
-    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', 'Map'];
+    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', 'Map', '$timeout'];
 
-    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, Map) {
+    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, Map, $timeout) {
         var vm = this;
 
         // Attributes
@@ -22,6 +22,7 @@
           },
           fullSize: true
         };
+        vm.showMap = true;
 
         vm.marker = {
           id: 0,
@@ -39,7 +40,6 @@
             $ionicLoading.show({
                 template: '<ion-spinner></ion-spinner>'
             });
-
 
             $ionicPlatform.ready(function () {
               var posOptions = {
@@ -93,6 +93,14 @@
                       viewBulky: function (model, event) {
                         vm.currentModel = model.model;
                         vm.map.fullSize = false;
+
+                        vm.showMap = false;
+                        $timeout(function (){
+                          vm.map.center = angular.copy(vm.currentModel.coords);
+
+                          // hack to resize map
+                          vm.showMap = true;
+                        }, 10);
                       },
                       picture: bulky.picture,
                       address: bulky.address,
