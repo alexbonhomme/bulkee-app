@@ -29,7 +29,12 @@
         };
         vm.markers = [];
 
-        vm.currentModel = {};
+        // DO NOT TOUCH THIS OBJECT
+        vm.currentModel = {
+          icon: {
+            scaledSize: {}
+          }
+        };
 
         // vm.openBulkee = openBulkee;
 
@@ -88,17 +93,22 @@
                       icon: {
                         url: getIconURL(bulky.category.name),
 
-                        scaledSize: new google.maps.Size(44, 44)
+                        scaledSize: new google.maps.Size(38, 38)
                       },
                       viewBulky: function (model, event) {
+                        // reset previous marker icon size
+                        vm.currentModel.icon.scaledSize = new google.maps.Size(38, 38);
+
+                        // update with new marker model
                         vm.currentModel = model.model;
+                        vm.currentModel.icon.scaledSize = new google.maps.Size(58, 58);
                         vm.map.fullSize = false;
 
+                        // hack to resize map
                         vm.showMap = false;
                         $timeout(function (){
                           vm.map.center = angular.copy(vm.currentModel.coords);
 
-                          // hack to resize map
                           vm.showMap = true;
                         }, 10);
                       },
