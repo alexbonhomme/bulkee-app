@@ -73,7 +73,7 @@
             $cordovaGeolocation
               .getCurrentPosition({
                 enableHighAccuracy: false,
-                timeout: 10000
+                timeout: 50000
               })
               .then(function (location) {
                 // Geocoding
@@ -95,17 +95,6 @@
             // Wait for all promises and build bulk object
             $q.all([ deferCamera.promise, deferLocation.promise ])
               .then(function (data) {
-               //  $ionicPopup.alert({
-               //   title: 'Picture',
-               //   template: data[0]
-               // });
-
-                if (! data[0]) {
-                  vm.modal.hide();
-                  return;
-                }
-
-                // alert(data[0]);
                 vm.bulk = {
                   picture: data[0],
                   position: [
