@@ -85,6 +85,9 @@
                         url: getIconURL(bulky.category.name),
 
                         scaledSize: new google.maps.Size(44, 44)
+                      },
+                      viewBulky: function (model, event) {
+                        console.log(model);
                       }
                     });
                   });
