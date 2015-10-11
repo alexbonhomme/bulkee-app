@@ -53,7 +53,11 @@
                       longitude: position.coords.longitude
                     },
                     options: {
-                      icon : 'img/pictos/blue_dot.png'
+                      icon: {
+                        url: 'img/pictos/bulkee_map-point.svg',
+
+                        scaledSize: new google.maps.Size(26, 26)
+                      }
                     }
                   };
                   var tmpMap = {
