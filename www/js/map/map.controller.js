@@ -27,11 +27,8 @@
           id: 0,
         };
         vm.markers = [];
-
         vm.currentModel = {};
-
-        // vm.openBulkee = openBulkee;
-
+        vm.dateFrom = {};
         init();
 
         function init() {
@@ -93,10 +90,14 @@
                       viewBulky: function (model, event) {
                         vm.currentModel = model.model;
                         vm.map.fullSize = false;
+
+                        var now = new Date();
+
+                        vm.dateFrom = moment(model.model.date).fromNow();
                       },
                       picture: bulky.picture,
-                      address: bulky.address,
-                      author: bulky.author
+                      address: bulky.address,                      
+                      date: bulky.createdAt
                     });
                   });
 
