@@ -53,7 +53,7 @@
                       longitude: position.coords.longitude
                     },
                     options: {
-                      icon : 'img/pictos/bulkee_fiche-pin.svg'
+                      icon : 'img/pictos/blue_dot.png'
                     }
                   };
                   var tmpMap = {
@@ -77,7 +77,11 @@
                         longitude: bulky.position[1],
                         latitude: bulky.position[0]
                       },
-                      icon: 'img/pictos/bulkee_fiche-pin.svg'
+                      icon: {
+                        url: getIconURL(bulky.category.name),
+
+                        scaledSize: new google.maps.Size(44, 44)
+                      }
                     });
                   });
 
@@ -93,9 +97,34 @@
         }
 
         function getIconURL(category) {
-          switch(category) {
-            case '':
-              return ;
+          switch (category) {
+            case 'FURNITURE':
+              return 'img/pictos/bulkee_section-meubles.svg';
+
+            case 'DECO':
+              return 'img/pictos/bulkee_section-deco.svg';
+
+            case 'CULTURE':
+              return 'img/pictos/bulkee_section-culture.svg';
+
+            case 'ELECTRO':
+              return 'img/pictos/bulkee_section-electro.svg';
+
+            case 'MULTIMEDIA':
+              return 'img/pictos/bulkee_section-multimedia.svg';
+
+            case 'LITTLEELECTRO':
+              return 'img/pictos/bulkee_section-petitelectro.svg';
+
+            case 'CLOTHES':
+              return 'img/pictos/bulkee_section-vetements.svg';
+
+            case 'TOYS':
+              return 'img/pictos/bulkee_section-jouets.svg';
+
+            case 'MISC':
+            default:
+              return 'img/pictos/bulkee_section-divers.svg';
           }
         }
     }
