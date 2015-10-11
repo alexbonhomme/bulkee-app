@@ -17,14 +17,14 @@
         </ui-gmap-markers>
       </ui-gmap-google-map>
 
-      <div class="bulk-details" ng-show="">
+      <div class="bulk-details" ng-show="!MapCtrl.map.fullSize">
         <div class="photo">
-          <img src="img/canape.jpg" alt="">
+          <img ng-src="data:image/jpeg;base64,{{MapCtrl.currentModel.picture}}" alt="">
         </div>
         <div class="infos">
           <span class="time">15 minutes</span>
-          <span class="address">rue de la Plaine, 59200 Tourcoing</span>
-          <span class="user">par <strong>UserTropSympa</strong> et <strong>4 autres</strong></span>
+          <span class="address">{{MapCtrl.currentModel.address}}</span>
+          <span class="user">par <strong>{{MapCtrl.currentModel.author.name}}</strong> et <strong>4 autres</strong></span>
         </div>
         <div class="pickup"></div>
       </div>

@@ -28,6 +28,8 @@
         };
         vm.markers = [];
 
+        vm.currentModel = {};
+
         // vm.openBulkee = openBulkee;
 
         init();
@@ -89,8 +91,12 @@
                         scaledSize: new google.maps.Size(44, 44)
                       },
                       viewBulky: function (model, event) {
-                        console.log(model);
-                      }
+                        vm.currentModel = model.model;
+                        vm.map.fullSize = false;
+                      },
+                      picture: bulky.picture,
+                      address: bulky.address,
+                      author: bulky.author
                     });
                   });
 
