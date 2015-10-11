@@ -5,9 +5,9 @@
         .module('bulkee.map')
         .controller('MapController', MapController);
 
-    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', 'Map'];
+    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', '$scope', 'Map'];
 
-    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, Map) {
+    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, $scope, Map) {
         var vm = this;
 
         // Attributes
@@ -20,7 +20,7 @@
           options: {
             disableDefaultUI: true
           },
-          fullSize: false
+          fullSize: true
         };
 
         vm.marker = {

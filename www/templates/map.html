@@ -10,13 +10,14 @@
       'full-map': MapCtrl.map.fullSize
     }">
       <ui-gmap-google-map center="MapCtrl.map.center" zoom="MapCtrl.map.zoom" options="MapCtrl.map.options" control="MapCtrl.control">
-        <ui-gmap-marker coords="MapCtrl.marker.coords" options="MapCtrl.marker.options" idkey="MapCtrl.marker.id">
 
-        <ui-gmap-markers models="MapCtrl.markers" coords="'coords'" icon="'icon'">
+        <ui-gmap-marker coords="MapCtrl.marker.coords" options="MapCtrl.marker.options" idkey="MapCtrl.marker.id"></ui-gmap-marker>
+
+        <ui-gmap-markers models="MapCtrl.markers" coords="'coords'" icon="'icon'" >
         </ui-gmap-markers>
       </ui-gmap-google-map>
 
-      <div class="bulk-details">
+      <div class="bulk-details" ng-show="">
         <div class="photo">
           <img src="img/canape.jpg" alt="">
         </div>
