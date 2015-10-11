@@ -62,7 +62,6 @@
             });
 
             push.register(function(token) {
-              // alert('Device token: ' + token.token);
               $rootScope.devicetoken = token.token;
             });
 
