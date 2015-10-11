@@ -22,7 +22,7 @@
           },
           fullSize: true
         };
-        vm.showMap = true;
+        vm.showMap = false;
 
         vm.marker = {
           id: 0,
@@ -46,6 +46,11 @@
           $ionicLoading.show({
               template: '<ion-spinner></ion-spinner>'
           });
+
+          // Fix map loading bug
+          $timeout(function () {
+            vm.showMap = true;
+          }, 200);
 
           $ionicPlatform.ready(function () {
             var posOptions = {

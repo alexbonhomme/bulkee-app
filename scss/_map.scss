@@ -29,7 +29,7 @@
   		justify-content: flex-end;
 		// height: 55vh;
 		// margin-top: -5vh;
-	} 
+	}
 }
 
 .full-map {
@@ -41,9 +41,18 @@
 		display: flex;
 	}
 }
- 
+
+.scroll {
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
 .bulk-details {
-	background: #fff; 
+	background: #fff;
 	position: relative;
 	box-shadow: 0 0 8px rgba(0,0,0,.3);
 	.infos {
@@ -66,7 +75,7 @@
 		img {
 			width: 100%;
 			height: auto;
-		} 
+		}
 	}
 }
 
@@ -89,7 +98,7 @@
 	padding-left: 30px;
 	background: url('../img/pictos/bulkee_time.svg') 0 center no-repeat;
 	background-size: 24px 24px;
-	
+
 	height: 24px;
 }
 
@@ -109,7 +118,7 @@
 	background: url('../img/pictos/bulkee_fiche-user.svg') 0 center no-repeat;
 	background-size: 10px 13px;
 	font-size: 12px;
-} 
+}
 
 .no-header,
 .platform-ios.platform-cordova .no-header {
