@@ -3,6 +3,7 @@
     .module('bulkee.map')
     // .constant('API_BASE', 'http://localhost:3000')
     .constant('API_BASE', 'http://bulkee-blckshrk.rhcloud.com')
+    // .constant('API_BASE', 'http://172.16.2.101:3000')
     .factory('Map', mapService);
 
   mapService.$inject = [ '$http', 'API_BASE' ];
