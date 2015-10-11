@@ -1,8 +1,8 @@
 (function () {
   angular
     .module('bulkee.map')
-    .constant('API_BASE', 'http://localhost:3000')
-    // .constant('API_BASE', 'http://172.16.2.101:3000')
+    // .constant('API_BASE', 'http://localhost:3000')
+    .constant('API_BASE', 'http://bulkee-blckshrk.rhcloud.com')
     .factory('Map', mapService);
 
   mapService.$inject = [ '$http', 'API_BASE' ];
