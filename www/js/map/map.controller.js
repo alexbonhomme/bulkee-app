@@ -20,7 +20,7 @@
           options: {
             disableDefaultUI: true
           },
-          fullSize: true
+          fullSize: false
         };
 
         vm.marker = {

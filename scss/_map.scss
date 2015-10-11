@@ -1,15 +1,87 @@
-.angular-google-map {
-  height: 100%;
-
-  .angular-google-map-container {
-    height: 100%;
-  }
+.angular-google-map-container {
+	height: 100%;
 }
 
 .mini-map {
-  height: 60%;
+	height: 100%;
+	.angular-google-map {
+		height: 50%;
+	}
+  	.bulk-details {
+		height: 50%;
+		margin-top: -20px;
+	}
 }
 
 .full-map {
-  height: 100%;
+	height: 100%;
+	.angular-google-map {
+		height: 100%;
+	}
+	.bulk-details {
+		display: flex;
+	}
+}
+
+.bulk-details {
+	background: #fff; 
+	position: relative;
+	box-shadow: 0 0 8px rgba(0,0,0,.3);
+	.infos {
+		padding: 16px 25px;
+	}
+
+	span {
+		display: block;
+		margin-top: 4px;
+		margin-bottom: 4px;
+	}
+
+	.photo {
+		height: 217px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+
+
+.pickup {
+	background: url('../img/pictos/bulkee_prendre.svg') no-repeat;
+	width: 84px;
+	height: 84px;
+	display: block;
+	position: absolute;
+	top: 180px;
+	right: 25px;
+	border-radius: 84px;
+}
+
+.time {
+	font-size: 24px;
+	padding-left: 30px;
+	background: url('../img/pictos/bulkee_time.svg') 0 center no-repeat;
+	background-size: 24px 24px;
+	
+	height: 24px;
+}
+
+.address {
+	font-size: 24px;
+	padding-left: 20px;
+	margin-left: 5px;
+	background: url('../img/pictos/bulkee_fiche-pin.svg') 0 center no-repeat;
+	background-size: 10px 13px;
+	font-size: 12px;
+}
+
+.user {
+	font-size: 24px;
+	padding-left: 20px;
+	margin-left: 5px;
+	background: url('../img/pictos/bulkee_fiche-user.svg') 0 center no-repeat;
+	background-size: 10px 13px;
+	font-size: 12px;
 }
