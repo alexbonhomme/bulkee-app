@@ -55,28 +55,61 @@
                 StatusBar.styleDefault();
             }
 
+            initPushwoosh();
 
-            Ionic.io();
-            var push = new Ionic.Push({
-              'debug': true
-            });
 
-            push.register(function(token) {
-              $rootScope.devicetoken = token.token;
-            });
+            // Ionic.io();
+            // var push = new Ionic.Push({
+            //   'debug': true
+            // });
 
-            // this will give you a fresh user or the previously saved 'current user'
-            var user = Ionic.User.current();
+            // push.register(function(token) {
+            //   $rootScope.devicetoken = token.token;
+            // });
 
-            // if the user doesn't have an id, you'll need to give it one.
-            if (!user.id) {
-              user.id = Ionic.User.anonymousId();
-              // user.id = 'your-custom-user-id';
+            // // this will give you a fresh user or the previously saved 'current user'
+            // var user = Ionic.User.current();
+
+            // // if the user doesn't have an id, you'll need to give it one.
+            // if (!user.id) {
+            //   user.id = Ionic.User.anonymousId();
+            //   // user.id = 'your-custom-user-id';
+            // }
+
+            // //persist the user
+            // user.save();
+        });
+    }
+
+    function initPushwoosh()
+    {
+        var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+
+        //set push notifications handler
+        document.addEventListener('push-notification', function(event) {
+            var title = event.notification.title;
+            var userData = event.notification.userdata;
+
+            if(typeof(userData) != "undefined") {
+                console.warn('user data: ' + JSON.stringify(userData));
             }
 
-            //persist the user
-            user.save();
+            alert(title);
         });
+
+        //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_NUMBER", pw_appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+        pushNotification.onDeviceReady({ projectid: "716288665584", pw_appid : "EC9FE-FA024" });
+
+        //register for pushes
+        pushNotification.registerDevice(
+            function(status) {
+                var pushToken = status;
+                console.warn('push token: ' + pushToken);
+            },
+            function(status) {
+                console.warn(JSON.stringify(['failed to register ', status]));
+            }
+        );
     }
 
     angular.module('bulkee', [
