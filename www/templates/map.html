@@ -8,8 +8,8 @@
     <div ng-class="{
       'mini-map': !MapCtrl.map.fullSize,
       'full-map': MapCtrl.map.fullSize
-    }">
-      <ui-gmap-google-map center="MapCtrl.map.center" zoom="MapCtrl.map.zoom" options="MapCtrl.map.options" control="MapCtrl.control">
+    }" data-tap-disabled="true">
+      <ui-gmap-google-map center="MapCtrl.map.center" zoom="MapCtrl.map.zoom" options="MapCtrl.map.options" control="MapCtrl.control" ng-if="MapCtrl.showMap">
 
         <ui-gmap-marker coords="MapCtrl.marker.coords" options="MapCtrl.marker.options" idkey="MapCtrl.marker.id"></ui-gmap-marker>
 
