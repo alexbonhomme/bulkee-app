@@ -9,12 +9,12 @@
 .mini-map {
 	height: 100%;
 	.angular-google-map {
-		height: 50%;
+		height: 50vh;
 	}
   	.bulk-details {
-		height: 54%;
-		margin-top: -4%;
-	}
+		height: 55vh;
+		margin-top: -5vh;
+	} 
 }
 
 .full-map {
@@ -32,7 +32,7 @@
 	position: relative;
 	box-shadow: 0 0 8px rgba(0,0,0,.3);
 	.infos {
-		padding: 16px 25px;
+		padding: 12px 25px;
 	}
 
 	span {
@@ -42,11 +42,12 @@
 	}
 
 	.photo {
-		height: 217px;
+		max-height: 217px;
+		overflow: hidden;
 		img {
 			width: 100%;
 			height: auto;
-		}
+		} 
 	}
 }
 
@@ -58,7 +59,7 @@
 	height: 84px;
 	display: block;
 	position: absolute;
-	top: 180px;
+	top: 145px;
 	right: 25px;
 	border-radius: 84px;
 }
