@@ -88,8 +88,8 @@
 
                         scaledSize: new google.maps.Size(44, 44)
                       },
-                      viewBulkee : function(mapModel, eventName, originalEventArgs) {
-                        console.log(mapModel, eventName, originalEventArgs);
+                      viewBulky: function (model, event) {
+                        console.log(model);
                       }
                     });
                   });
