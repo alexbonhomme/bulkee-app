@@ -5,9 +5,9 @@
         .module('bulkee.map')
         .controller('MapController', MapController);
 
-    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', '$scope', 'Map'];
+    MapController.$inject = [ 'uiGmapGoogleMapApi', '$ionicPlatform', '$cordovaGeolocation', '$ionicLoading', 'Map'];
 
-    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, $scope, Map) {
+    function MapController(uiGmapGoogleMapApi, $ionicPlatform, $cordovaGeolocation, $ionicLoading, Map) {
         var vm = this;
 
         // Attributes
@@ -24,9 +24,11 @@
         };
 
         vm.marker = {
-            id: 0,
+          id: 0,
         };
         vm.markers = [];
+
+        // vm.openBulkee = openBulkee;
 
         init();
 
@@ -85,6 +87,9 @@
                         url: getIconURL(bulky.category.name),
 
                         scaledSize: new google.maps.Size(44, 44)
+                      },
+                      viewBulkee : function(mapModel, eventName, originalEventArgs) {
+                        console.log(mapModel, eventName, originalEventArgs);
                       }
                     });
                   });
