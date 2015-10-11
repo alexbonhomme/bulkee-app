@@ -50,7 +50,7 @@
           $ionicPlatform.ready(function () {
             var posOptions = {
                 enableHighAccuracy: false,
-                timeout: 10000
+                timeout: 50000
             };
 
             $cordovaGeolocation
