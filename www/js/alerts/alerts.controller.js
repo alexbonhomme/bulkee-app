@@ -10,7 +10,7 @@
     function AlertsController(Alerts, Map, $cordovaGeolocation, $state) {
         var vm = this;
         var category = {};
-        vm.distance = 50;
+        vm.distance = 5;
         var posOptions = {
           enableHighAccuracy: false,
           timeout: 10000

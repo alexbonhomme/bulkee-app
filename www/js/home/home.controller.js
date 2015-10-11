@@ -5,9 +5,9 @@
         .module('bulkee.home')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = [ '$ionicPlatform', '$scope', '$ionicModal', 'Map', '$cordovaGeolocation', '$q', '$ionicLoading', '$timeout' ];
+    HomeController.$inject = [ '$ionicPlatform', '$scope', '$ionicModal', 'Map', '$cordovaGeolocation', '$q', '$ionicLoading', '$timeout', '$ionicPopup' ];
 
-    function HomeController($ionicPlatform, $scope, $ionicModal, Map, $cordovaGeolocation, $q, $ionicLoading, $timeout) {
+    function HomeController($ionicPlatform, $scope, $ionicModal, Map, $cordovaGeolocation, $q, $ionicLoading, $timeout, $ionicPopup) {
         var vm = this;
         vm.category = {};
         // Attributes
@@ -95,6 +95,17 @@
             // Wait for all promises and build bulk object
             $q.all([ deferCamera.promise, deferLocation.promise ])
               .then(function (data) {
+               //  $ionicPopup.alert({
+               //   title: 'Picture',
+               //   template: data[0]
+               // });
+
+                if (! data[0]) {
+                  vm.modal.hide();
+                  return;
+                }
+
+                // alert(data[0]);
                 vm.bulk = {
                   picture: data[0],
                   position: [
@@ -108,13 +119,13 @@
                     name: 'Benjamin COENEN'
                   }
                 };
+
+                // show modal to ask category
+                vm.modal.show();
+              }, function (err) {
+                $ionicLoading.hide();
               })
               .finally(function () {
-                // show modal to ask category
-                if (!vm.bulk.picture) {
-                  vm.modal.show();
-                }
-
                 $timeout(function () {
                   $ionicLoading.hide();
                 }, 1000);
