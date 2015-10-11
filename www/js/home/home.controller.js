@@ -66,7 +66,7 @@
               // base64 image
               destinationType: Camera.DestinationType.DATA_URL
             });
-            // deferCamera.resolve("img/canap2.jpg");
+            // deferCamera.resolve("img/canape.jpg");
 
             // Get location (promise)
             var locationPromise = $cordovaGeolocation
@@ -83,8 +83,8 @@
                     vm.bulk = {
                       picture: data[0],
                       position: [
-                        data[1].coords.longitude,
-                        data[1].coords.latitude
+                        data[1].coords.latitude,
+                        data[1].coords.longitude
                       ],
                       address: address,
                       description: 'test',
