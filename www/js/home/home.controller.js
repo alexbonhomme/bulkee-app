@@ -66,9 +66,6 @@
               // base64 image
               destinationType: Camera.DestinationType.DATA_URL
             });
-            // $ionicLoading.show({
-            //     template: '<ion-spinner></ion-spinner>'
-            // });
             // deferCamera.resolve("img/canap2.jpg");
 
             // Get location (promise)
