@@ -42,6 +42,24 @@
             v: '3.20', //defaults to latest 3.X anyhow
             libraries: 'weather,geometry,visualization'
         });
+
+        moment.locale('en', {
+          relativeTime : {
+            future: "dans %s",
+            past:   "il y a %s",
+            s:  "secondes",
+            m:  "une minute",
+            mm: "%d minutes",
+            h:  "une heure",
+            hh: "%d heures",
+            d:  "un jour",
+            dd: "%d jours",
+            M:  "un mois",
+            MM: "%d mois",
+            y:  "un an",
+            yy: "%d ans"
+          }
+        });
     }
 
     function run($ionicPlatform, $rootScope) {
@@ -94,8 +112,6 @@
             if(typeof(userData) != "undefined") {
                 console.warn('user data: ' + JSON.stringify(userData));
             }
-
-            alert(title);
         });
 
         //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_NUMBER", pw_appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.

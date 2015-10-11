@@ -8,8 +8,8 @@
     <div ng-class="{
       'mini-map': !MapCtrl.map.fullSize,
       'full-map': MapCtrl.map.fullSize
-    }" data-tap-disabled="true">
-      <ui-gmap-google-map center="MapCtrl.map.center" zoom="MapCtrl.map.zoom" options="MapCtrl.map.options" control="MapCtrl.control" ng-if="MapCtrl.showMap">
+    }">
+      <ui-gmap-google-map center="MapCtrl.map.center" zoom="MapCtrl.map.zoom" options="MapCtrl.map.options" control="MapCtrl.control">
 
         <ui-gmap-marker coords="MapCtrl.marker.coords" options="MapCtrl.marker.options" idkey="MapCtrl.marker.id"></ui-gmap-marker>
 
@@ -19,10 +19,10 @@
 
       <div class="bulk-details" ng-show="!MapCtrl.map.fullSize">
         <div class="photo">
-          <img ng-src="data:image/jpeg;base64,{{MapCtrl.currentModel.picture}}" alt="">
+          <img ng-src="data:image/jpeg;base64,{{MapCtrl.currentModel.picture}}" alt="" />
         </div>
         <div class="infos">
-          <span class="time">15 minutes</span>
+          <span class="time">{{MapCtrl.dateFrom}}</span>
           <span class="address">{{MapCtrl.currentModel.address}}</span>
           <span class="user">par <strong>{{MapCtrl.currentModel.author.name}}</strong> et <strong>4 autres</strong></span>
         </div>

@@ -38,6 +38,7 @@
 
         // vm.openBulkee = openBulkee;
 
+        vm.dateFrom = {};
         init();
 
         function init() {
@@ -111,10 +112,13 @@
 
                         vm.showMap = true;
                       }, 10);
+
+                      vm.dateFrom = moment(model.model.date).fromNow();
                     },
                     picture: bulky.picture,
                     address: bulky.address,
-                    author: bulky.author
+                    author: bulky.author,
+                    date: bulky.createdAt
                   });
                 });
 
