@@ -59,7 +59,7 @@
             // Get picture (promise)
             var deferCamera = $q.defer();
             navigator.camera.getPicture(function (imageURI) {
-                deferCamera.resolve(imageURI);
+              deferCamera.resolve(imageURI);
             }, function (err) {
                 deferCamera.reject(err);
             }, {
@@ -111,7 +111,9 @@
               })
               .finally(function () {
                 // show modal to ask category
-                vm.modal.show();
+                if (!vm.bulk.picture) {
+                  vm.modal.show();
+                }
 
                 $timeout(function () {
                   $ionicLoading.hide();
