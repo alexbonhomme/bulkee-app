@@ -80,7 +80,7 @@
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
                   },
-                  zoom : 15
+                  zoom: 16
                 };
 
                 _.assign(vm.map, tmpMap);
@@ -99,11 +99,11 @@
                     icon: {
                       url: getIconURL(bulky.category.name),
 
-                      scaledSize: new google.maps.Size(38, 38)
+                      scaledSize: new google.maps.Size(44, 44)
                     },
                     viewBulky: function (model, event) {
                       // reset previous marker icon size
-                      vm.currentModel.icon.scaledSize = new google.maps.Size(38, 38);
+                      vm.currentModel.icon.scaledSize = new google.maps.Size(44, 44);
 
                       // update with new marker model
                       vm.currentModel = model.model;
