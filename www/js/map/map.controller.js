@@ -41,92 +41,92 @@
         init();
 
         function init() {
-            // Show loading overlay
-            $ionicLoading.show({
-                template: '<ion-spinner></ion-spinner>'
-            });
+          // Show loading overlay
+          $ionicLoading.show({
+              template: '<ion-spinner></ion-spinner>'
+          });
 
-            $ionicPlatform.ready(function () {
-              var posOptions = {
-                  enableHighAccuracy: false,
-                  timeout: 10000
-              };
+          $ionicPlatform.ready(function () {
+            var posOptions = {
+                enableHighAccuracy: false,
+                timeout: 10000
+            };
 
-              $cordovaGeolocation
-                .getCurrentPosition(posOptions)
-                .then(function (position) {
-                  vm.marker = {
-                    id: 0,
-                    coords: {
-                      latitude: position.coords.latitude,
-                      longitude: position.coords.longitude
-                    },
-                    options: {
-                      icon: {
-                        url: 'img/pictos/bulkee_map-point.svg',
+            $cordovaGeolocation
+              .getCurrentPosition(posOptions)
+              .then(function (position) {
+                vm.marker = {
+                  id: 0,
+                  coords: {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                  },
+                  options: {
+                    icon: {
+                      url: 'img/pictos/bulkee_map-point.svg',
 
-                        scaledSize: new google.maps.Size(26, 26)
-                      }
+                      scaledSize: new google.maps.Size(26, 26)
                     }
-                  };
-                  var tmpMap = {
-                    center : {
-                      latitude: position.coords.latitude,
-                      longitude: position.coords.longitude
+                  }
+                };
+                var tmpMap = {
+                  center : {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                  },
+                  zoom : 15
+                };
+
+                _.assign(vm.map, tmpMap);
+
+                return Map.getBulkiesNearMe(500, position.coords.longitude, position.coords.latitude);
+              })
+              .then(function (bulkies) {
+                vm.bulkies = bulkies;
+                bulkies.forEach(function (bulky, id) {
+                  vm.markers.push({
+                    id: bulky._id,
+                    coords: {
+                      longitude: bulky.position[1],
+                      latitude: bulky.position[0]
                     },
-                    zoom : 15
-                  };
+                    icon: {
+                      url: getIconURL(bulky.category.name),
 
-                  _.assign(vm.map, tmpMap);
+                      scaledSize: new google.maps.Size(38, 38)
+                    },
+                    viewBulky: function (model, event) {
+                      // reset previous marker icon size
+                      vm.currentModel.icon.scaledSize = new google.maps.Size(38, 38);
 
-                  return Map.getBulkiesNearMe(500, position.coords.longitude, position.coords.latitude);
-                })
-                .then(function (bulkies) {
-                  vm.bulkies = bulkies;
-                  bulkies.forEach(function (bulky, id) {
-                    vm.markers.push({
-                      id: bulky._id,
-                      coords: {
-                        longitude: bulky.position[1],
-                        latitude: bulky.position[0]
-                      },
-                      icon: {
-                        url: getIconURL(bulky.category.name),
+                      // update with new marker model
+                      vm.currentModel = model.model;
+                      vm.currentModel.icon.scaledSize = new google.maps.Size(58, 58);
+                      vm.map.fullSize = false;
 
-                        scaledSize: new google.maps.Size(38, 38)
-                      },
-                      viewBulky: function (model, event) {
-                        // reset previous marker icon size
-                        vm.currentModel.icon.scaledSize = new google.maps.Size(38, 38);
+                      // hack to resize map
+                      vm.showMap = false;
+                      $timeout(function (){
+                        vm.map.center = angular.copy(vm.currentModel.coords);
 
-                        // update with new marker model
-                        vm.currentModel = model.model;
-                        vm.currentModel.icon.scaledSize = new google.maps.Size(58, 58);
-                        vm.map.fullSize = false;
-
-                        // hack to resize map
-                        vm.showMap = false;
-                        $timeout(function (){
-                          vm.map.center = angular.copy(vm.currentModel.coords);
-
-                          vm.showMap = true;
-                        }, 10);
-                      },
-                      picture: bulky.picture,
-                      address: bulky.address,
-                      author: bulky.author
-                    });
+                        vm.showMap = true;
+                      }, 10);
+                    },
+                    picture: bulky.picture,
+                    address: bulky.address,
+                    author: bulky.author
                   });
-
-                  return uiGmapGoogleMapApi;
-                })
-                .catch(function (err) {
-                  console.log(err);
-                })
-                .finally(function () {
-                  $ionicLoading.hide();
                 });
-            });
+
+                return uiGmapGoogleMapApi;
+              })
+              .catch(function (err) {
+                console.log(err);
+              })
+              .finally(function () {
+                $ionicLoading.hide();
+              });
+          });
         }
 
         function getIconURL(category) {

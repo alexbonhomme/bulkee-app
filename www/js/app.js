@@ -18,7 +18,8 @@
           .state('map', {
               url: '/map',
               templateUrl: 'templates/map.html',
-              controller: 'MapController as MapCtrl'
+              controller: 'MapController as MapCtrl',
+              cache: false
           })
           .state('profile', {
               url: '/profile',
